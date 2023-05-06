@@ -1,0 +1,115 @@
+.about-section{
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.about-section:first-child{
+    margin-bottom: 6px;
+}
+.about-section::before{
+    content: '';
+    width: 100%;
+    height: inherit;
+    background-image: linear-gradient(360deg, #000000c4, #10101970);
+    position: absolute;
+}
+
+.about-section .main-content {
+    max-width: 60%;
+    text-align: center;
+    z-index: 1;
+    background: #dddddd26;
+    padding: 25px;
+    border: 1px solid #d9d9d942;
+    border-radius: 1rem;
+    backdrop-filter: blur(10px);
+    margin-top: 4rem;
+}
+
+.management{
+    background: #41464b;
+    padding-top: 26rem;
+    padding-bottom: 10rem;
+}
+.single-user-card .card-img-top img {
+    width: 66%;
+    position: relative;
+    top: -173px;
+    height: 260px;
+    border: 2px solid orange;
+    padding: 8px;
+}
+.single-user-card .card-img-top{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.single-user-card .card-body{
+    text-align: center;
+    margin-top: -155px;
+}
+.management .container .row{
+    padding: 0 10rem;
+}
+.management .card-body h1{
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 1.8rem;
+}
+.management .card-body h5{
+    font-size: 15px;
+    color: #41464b;
+}
+.management .card-body p{
+    font-size: 13px;
+    margin-bottom: 3rem;
+    color: #4c5156;
+}
+.management .card-body a{
+    text-decoration: none;
+    margin-top: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: black;
+}
+.our-team{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background: #050710b5;
+}
+.our-team .container{
+    margin-bottom: -11rem;
+}
+
+.members {
+    height: 85vh;
+    padding-top: 3rem;
+}
+.members .card-body h1{
+    font-size: 20px;
+}
+.members .card-body p{
+    font-size: 11px;
+    text-align: justify;
+    color: #000000c2;
+    line-height: 17px;
+}
+.members .card-footer a{
+    color: white;
+    font-width: bold;
+    font-size: 20px;
+    text-decoration: none;
+    transition: 0.3s all ease;
+    text-transform: uppercase;
+}
+.members .card-footer a:hover{
+    text-decoration: none;
+    color: red;
+}
+
+.our-gallery{
+    background:#050710b5;
+}
