@@ -12,8 +12,8 @@
                 <div class="header-column">
                     <div class="header-row">
                         <div class="header-logo">
-                            <a href="demo-business-consulting.html">
-                                <img alt="{{ config("app.name") }}" width="82" height="80" src="{{ asset('assets/frontend') }}/img/logo.png">
+                            <a href="/">
+                                <img alt="{{ config("app.name") }}" width="82" height="100" src="{{ get_setting('header_logo') ? '/storage/'.get_setting('header_logo') : asset('assets/frontend/img/logo.png') }}">
                             </a>
                         </div>
                     </div>
@@ -42,12 +42,12 @@
                                             </ul>
                                         </li>
                                         <li>
-                                            <a class="nav-link" href="demo-business-consulting-about-us.html">
+                                            <a class="dropdown-toggle nav-link {{ Route::is('project') ? 'active' : '' }}" href="{{ route('project') }}" >
                                                 Our Projects
                                             </a>
                                         </li>
                                         <li>
-                                            <a class="nav-link" href="demo-business-consulting-contact-us.html">
+                                            <a class="nav-link {{ Route::is('contact') ? 'active' : '' }}" href="{{ route('contact') }}">
                                                 Contact Us
                                             </a>
                                         </li>

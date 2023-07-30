@@ -11,18 +11,18 @@
     <meta name="author" content="creativetechpark">
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ asset('assets/frontend') }}/img/logo.png" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="{{ asset('assets/frontend') }}/img/logo.png">
+    <link rel="shortcut icon" href="{{get_setting('header_logo') ? '/storage/'.get_setting('header_logo') : asset('assets/frontend/img/logo.png') }}" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="{{get_setting('header_logo') ? '/storage/'.get_setting('header_logo') : asset('assets/frontend/img/logo.png')  }}">
 
     <!-- Mobile Metas -->
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
 
     <!-- Web Fonts  -->
-    <link id="googleFonts" href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700%7CSintony:400,700&amp;display=swap" rel="stylesheet" type="text/css">
+{{--    <link id="googleFonts" href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700%7CSintony:400,700&amp;display=swap" rel="stylesheet" type="text/css">--}}
 {{--    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">--}}
 
 
-<!-- {{ asset('assets/frontend') }}/vendor CSS -->
+
     <link rel="stylesheet" href="{{ asset('assets/frontend') }}/vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{ asset('assets/frontend') }}/vendor/fontawesome-free/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('assets/frontend') }}/vendor/animate/animate.compat.css">
@@ -37,6 +37,8 @@
     <link rel="stylesheet" href="{{ asset('assets/frontend') }}/css/theme-blog.css">
     <link rel="stylesheet" href="{{ asset('assets/frontend') }}/css/theme-shop.css">
 
+    <link rel="stylesheet" href="{{ asset('assets/frontend') }}/css/frencybox.css">
+    <link rel="stylesheet" href="{{ asset('assets/frontend') }}/css/fontawesome.css">
     <!-- Demo CSS -->
     <link rel="stylesheet" href="{{ asset('assets/frontend') }}/css/demos/demo-business-consulting.css">
 
@@ -55,7 +57,21 @@
             z-index: 10000;
             background: #000000;
         }
+        .map_col iframe{
+            width: 100% !important;
+        }
     </style>
     @stack('css')
+
+<!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-E017TKC09N"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-E017TKC09N');
+    </script>
+
 </head>
 <body style="scroll-behavior: smooth">
