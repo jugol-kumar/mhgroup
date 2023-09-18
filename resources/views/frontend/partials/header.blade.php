@@ -13,7 +13,7 @@
                     <div class="header-row">
                         <div class="header-logo">
                             <a href="/">
-                                <img alt="{{ config("app.name") }}" width="82" height="100" src="{{ get_setting('header_logo') ? '/storage/'.get_setting('header_logo') : asset('assets/frontend/img/logo.png') }}">
+                                <img alt="{{ config("app.name") }}" class="header-main-logo" src="{{ get_setting('header_logo') ? '/storage/'.get_setting('header_logo') : asset('assets/frontend/img/logo.png') }}">
                             </a>
                         </div>
                     </div>

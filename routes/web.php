@@ -65,6 +65,8 @@ Route::prefix('panel')->name('admin.')->middleware('auth')->group(function (){
    Route::post('settings', [BusinessSettingController::class, 'update'])->name('settings');
    Route::post('settings-appearance', [BusinessSettingController::class, 'updateLogo'])->name('updateLogo');
 
+   Route::post('update-profile', [BusinessSettingController::class, 'updateProfile'])->name('update_profile');
+
 
 });
 

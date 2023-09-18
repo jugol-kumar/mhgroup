@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Panel;
 use App\Http\Controllers\Controller;
 use App\Models\BusinessSetting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class BusinessSettingController extends Controller
 {
@@ -77,6 +79,23 @@ class BusinessSettingController extends Controller
         return $request;
     }
 
+    public function updateProfile(Request $request){
+
+        if ($request->input('name')){
+            Auth::user()->update(['name' => $request->name]);
+        }
+
+        if ($request->input('email')){
+            Auth::user()->update(['email' => $request->email]);
+        }
+
+        if ($request->input('password')){
+            Auth::user()->update(['password' => Hash::make($request->password)]);
+            Auth::logout();
+        }
+        toast('Setting Updated...', 'success');
+        return back();
+    }
 
 
 }

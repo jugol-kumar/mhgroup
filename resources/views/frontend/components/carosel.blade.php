@@ -8,23 +8,25 @@
     }
 </style>
 
-<div class="owl-carousel owl-carousel-light owl-carousel-light-init-fadeIn owl-theme manual dots-inside dots-horizontal-center show-dots-hover show-dots-xs show-dots-sm show-dots-md dots-light custom-nav-arrows-1 nav-dark nav-md nav-font-size-md show-nav-hover mb-0" data-plugin-options="{'autoplayTimeout': 9000}" style="height: 100vh;">
+<div class="owl-carousel owl-carousel-light owl-carousel-light-init-fadeIn
+owl-theme manual dots-inside dots-horizontal-center show-dots-hover show-dots-xs show-dots-sm show-dots-md
+ dots-light custom-nav-arrows-1 nav-dark nav-md nav-font-size-md show-nav-hover mb-0 carousel-main-height" data-plugin-options="{'autoplayTimeout': 90000}"> {{--9000--}}
     <div class="owl-stage-outer">
         <div class="owl-stage ">
             @forelse($sliders as $slid)
                 <div class="owl-item-overlay owl-item position-relative"
                      style="background-image: url({{ '/storage/'.$slid?->bg_image }}); background-size: cover; background-position: center;">
-                    <div class="container position-relative z-index-3 pb-5 h-100">
-                        <div class="row align-items-center pb-5 h-100">
-                            <div class="col-7">
-                                <h1 class="custom-secondary-font text-color-light font-weight-extra-bold text-8 line-height-1 mb-2 line-height-sm-3 appear-animation"
+                    <div class="container position-relative z-index-3 pb-lg-5 pb-0 h-100">
+                        <div class="row align-items-center pb-lg-5 pb-0 h-100">
+                            <div class="col-12 col-lg-7 mt-5 mt-lg-0">
+                                <h1 class="custom-secondary-font text-color-light font-weight-extra-bold text-8 line-height-1 mb-0 mb-lg-2 line-height-sm-3 appear-animation"
                                     data-appear-animation="fadeInLeftShorterPlus" data-appear-animation-delay="500"
                                     data-plugin-options="{'minWindowWidth': 0}">
                                     <span class="custom-secondary-font text-4-5 ms-2">
                                         {{ $slid?->title }}
                                     </span>
                                 </h1>
-                                <p class="my-0 py-0 text-white mb-5" data-appear-animation="fadeInLeftShorterPlus" data-appear-animation-delay="1100">
+                                <p class="my-0 py-0 text-white mb-lg-5 mb-0 " data-appear-animation="fadeInLeftShorterPlus" data-appear-animation-delay="1100">
                                     {{ $slid?->descriptions }}
                                 </p>
                                 @if($slid?->button_name )

@@ -1,10 +1,10 @@
 
 @if($homeAreas->count())
-<section class="section-secondary custom-section-padding">
+<section class="bg-black custom-section-padding">
     <div class="container">
         <div class="row mb-4">
             <div class="col">
-                <h2 class="font-weight-bold text-color-dark mb-3">- লেক আইল্যান্ড - ঢাকা</h2>
+                <h2 class="font-weight-bold text-white mb-3">- লেক আইল্যান্ড - ঢাকা</h2>
             </div>
         </div>
         <div class="row">
@@ -16,8 +16,8 @@
                                 <img class="w-100 h-100 object-fit-cover" src="{{ '/storage/'.$item->thumbnail }}"  alt="">
                             </div>
                             <div class="feature-box-info ms-3">
-                                <h4 class="font-weight-normal text-5">{{ $item->title }}</h4>
-                                <p class="text-2 text-justify">{{ Str::limit($item->short_content, 100) }}  </p>
+                                <h4 class="font-weight-normal text-5 text-white">{{ $item->title }}</h4>
+                                <p class="text-2 text-justify text-white">{{ Str::limit($item->short_content, 100) }}  </p>
                             </div>
                         </div>
                     </div>
@@ -30,7 +30,7 @@
 
 
     <!-- Modal -->
-    <div class="modal fade modal-lg" id="myModal" role="dialog">
+    <div class="modal fade modal-lg" id="locationModal" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body">
@@ -45,7 +45,7 @@
 
 <script>
     function showAreaItem(item){
-        $("#myModal").modal("toggle");
+        $("#locationModal").modal("toggle");
         $("#title").text(item.title)
         $("#content").text(item.short_content)
         $("#details").html(item.content)

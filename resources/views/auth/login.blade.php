@@ -27,7 +27,11 @@
                                 <h2 class="brand-text text-primary ms-1">{{ get_setting('app_name') }}</h2>
                             </a>
 
-                            <h4 class="card-title mb-1 text-center">Welcome to Panel</h4>
+                            @if($errors->any())
+                                @foreach ($errors->all() as $error)
+                                    <div class="text-danger">{{ $error }}</div>
+                                @endforeach
+                            @endif
 
                             <form class="auth-login-form mt-2" action="{{ route('admin.login') }}" method="POST">
                                 @csrf
@@ -35,6 +39,7 @@
                                     <label for="login-email" class="form-label">Email</label>
                                     <input type="text" class="form-control" id="login-email"
                                            name="email" placeholder="john@example.com" aria-describedby="login-email" tabindex="1" autofocus />
+
                                 </div>
 
                                 <div class="mb-1">

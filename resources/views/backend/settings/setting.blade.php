@@ -15,13 +15,6 @@
     <div class="content-body">
         <div class="row">
             <div class="col-12">
-                <div class="alert alert-primary" role="alert">
-                    <div class="alert-body">
-                        <strong>Info:</strong> Please check the&nbsp;<a class="text-primary" href="https://pixinvent.com/demo/vuexy-html-bootstrap-admin-template/documentation/documentation-layout-full.html" target="_blank">Layout full documentation</a>&nbsp; for more details.
-                    </div>
-                </div>
-
-
                 <section class="app-dashboard">
                     <div class="card">
                         <div class="card-body border-bottom">
@@ -102,6 +95,22 @@
                                                         aria-controls="v-pills-video"
                                                         aria-selected="false">Video Content</button>
 
+                                                <button class="nav-link"
+                                                        id="v-pills-footer-tab"
+                                                        data-bs-toggle="pill"
+                                                        data-bs-target="#v-pills-footer"
+                                                        type="button" role="tab"
+                                                        aria-controls="v-pills-footer"
+                                                        aria-selected="false">Footer Content</button>
+
+                                                <button class="nav-link"
+                                                        id="v-pills-admin_profile-tab"
+                                                        data-bs-toggle="pill"
+                                                        data-bs-target="#v-pills-admin_profile"
+                                                        type="button" role="tab"
+                                                        aria-controls="v-pills-admin_profile"
+                                                        aria-selected="false">Admin Profile</button>
+
                                                 <!--                                    <a :href="`${this.$page.props.auth.ADMIN_URL}/home-page-settings`" class="nav-link">Home Setting</a>-->
 {{--                                                <a href="#" class="nav-link">Footer Setting</a>--}}
                                             </div>
@@ -149,8 +158,6 @@
                                                                         <button class="btn btn-primary me-1 waves-effect waves-float waves-light">
                                                                             Submit
                                                                         </button>
-
-                                                                        <button type="reset" class="btn btn-outline-secondary waves-effect">Reset</button>
                                                                     </div>
                                                                 </div>
                                                             </form>
@@ -202,7 +209,6 @@
                                                                         <button class="btn btn-primary me-1 waves-effect waves-float waves-light">
                                                                             Submit
                                                                         </button>
-                                                                        <button type="reset" class="btn btn-outline-secondary waves-effect">Reset</button>
                                                                     </div>
                                                                 </div>
                                                             </form>
@@ -219,89 +225,21 @@
                                                                 <div class="row">
                                                                     <input type="hidden" name="types[]" value="header_logo">
                                                                     <div class="col">
-                                                                        @include('backend.components.feviconLogo', ['name' => 'header_logo', 'bgImage' => get_setting('header_logo')])
+                                                                        <p>Header Logo (82 * 100) px</p>
+                                                                        @include('backend.components.feviconLogo', ['name' => 'header_logo', 'bg_image' => get_setting('header_logo')])
                                                                     </div>
                                                                     <div class="col">
                                                                         <input type="hidden" name="types[]" value="favicon">
-                                                                        @include('backend.components.feviconLogo', ['name' => 'favicon', 'bgImage' => get_setting('favicon')])
+                                                                        <p>Favicon Logo (16 * 16) px</p>
+                                                                        @include('backend.components.feviconLogo', ['name' => 'favicon', 'bg_image' => get_setting('favicon')])
                                                                     </div>
                                                                     <div class="col-12 mt-2 d-inline-flex align-item-center">
                                                                         <button type="submit" class="btn btn-primary me-1 waves-effect waves-float waves-light">
                                                                             Submit
                                                                         </button>
-                                                                        <button type="reset" class="btn btn-outline-secondary waves-effect">Reset</button>
                                                                     </div>
                                                                 </div>
                                                             </form>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="tab-pane fade" id="v-pills-shipping" role="tabpanel" aria-labelledby="v-pills-shipping_api-tab">
-                                                    <div class="card">
-                                                        <h2>Shipping Setting</h2>
-                                                        <div class="card-body d-flex justify-content-around">
-                                                            <div class="row">
-                                                                <div class="col">
-                                                                    <form class="form form-vertical" @submit.prevent="updateBuisnessSetting()">
-                                                                        <div class="row">
-                                                                            <div class="">
-                                                                                <label class="label card-text">Shipping Config</label>
-                                                                                <select v-model="createForm.shippingType" @change="shiConfig" class="form-control form-select">
-                                                                                    <option value="null" disabled>Select Sipping Type</option>
-                                                                                    <option value="f">Free Shipping</option>
-                                                                                    <option value="p">Product Wish</option>
-                                                                                    <!--                                                                        <option value="c">City Wise</option>-->
-                                                                                </select>
-                                                                            </div>
-
-                                                                            <div class="d-flex align-items-center mt-1" v-if="shippingStatus === 'p'">
-                                                                                <input type="text" class="form-control" v-model="createForm.inSizeDhaka" placeholder="Inside Dhaka" style="border-radius: 5px 0 0 5px;">
-                                                                                <input type="text" class="form-control" v-model="createForm.outSizeDhaka" placeholder="Outside Dhaka" style="border-left: 0;border-radius: 0 5px 5px 0;">
-                                                                            </div>
-
-
-                                                                            <div class="col-12 mt-2 d-inline-flex align-item-center">
-                                                                                <button v-if="!isLoding" type="submit" disabled class="btn btn-primary me-1 waves-effect waves-float waves-light">
-                                                                                    <div class="spinner-border text-white me-1"  role="status"></div>
-                                                                                    <span>Submit</span>
-                                                                                </button>
-                                                                                <button v-else class="btn btn-primary me-1 waves-effect waves-float waves-light">
-                                                                                    Submit
-                                                                                </button>
-
-                                                                                <button type="reset" class="btn btn-outline-secondary waves-effect">Reset</button>
-                                                                            </div>
-                                                                        </div>
-                                                                    </form>
-                                                                </div>
-                                                                <div class="col">
-                                                                    <label>Options Work</label>
-                                                                    <ul class="list-group">
-                                                                        <li class="list-group-item">
-                                                                            1. Product Wise Shipping Cost calulation: Shipping cost is calculate by addition of each product shipping cost.
-                                                                        </li>
-                                                                        <li class="list-group-item">
-                                                                            2. Flat Rate Shipping Cost calulation: How many products a customer purchase, doesn't matter. Shipping cost is fixed.
-                                                                        </li>
-                                                                        <li class="list-group-item">
-                                                                            3. Seller Wise Flat Shipping Cost calulation: Fixed rate for each seller. If customers purchase 2 product from two seller shipping cost is calculated by addition of each seller flat shipping cost.
-                                                                        </li>
-                                                                        <li class="list-group-item">
-                                                                            4. Area Wise Flat Shipping Cost calulation: Fixed rate for each area. If customers purchase multiple products from one seller shipping cost is calculated by the customer shipping area. To configure area wise shipping cost go to Shipping Cities.
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="tab-pane fade" id="v-pills-home_cats" role="tabpanel" aria-labelledby="v-pills-home_cats">
-                                                    <div class="card">
-                                                        <h2>Add Some Categories</h2>
-                                                        <div class="card-body">
-                                                            about here
                                                         </div>
                                                     </div>
                                                 </div>
@@ -356,86 +294,10 @@
                                                                         <button class="btn btn-primary me-1 waves-effect waves-float waves-light">
                                                                             Submit
                                                                         </button>
-                                                                        <button type="reset" class="btn btn-outline-secondary waves-effect">Reset</button>
                                                                     </div>
                                                                 </div>
                                                             </form>
                                                         </div>
-                                                    </div>
-                                                </div>
-
-
-                                                <div class="tab-pane fade" id="v-pills-smtp" role="tabpanel" aria-labelledby="v-pills-smtp">
-                                                    <div class="card">
-                                                        <h2>SMTP Setup</h2>
-                                                        <form class="form form-vertical" @submit.prevent="updateMailSetup()">
-                                                            <div class="row">
-                                                                <div class="col-12 mb-1">
-                                                                    <label>Mail Driver</label>
-                                                                    <vSelect :options="smtpMillers"
-                                                                             v-model="mailSetup.mailDriver" label="name"
-                                                                             :reduce="item =>item.name"
-                                                                             class="text-capitalize"
-                                                                             placeholder="e.g Mail Driver">
-                                                                    </vSelect>
-                                                                </div>
-
-                                                                <div class="col-12 mb-1">
-                                                                    <label>Mail Host</label>
-                                                                    <input type="text" class="form-control" v-model="mailSetup.mailHost" placeholder="e.g Mail Host" />
-                                                                </div>
-
-                                                                <div class="col-12 mb-1">
-                                                                    <label>Mail Port</label>
-                                                                    <input type="text" class="form-control" v-model="mailSetup.mailPort" placeholder="e.g Mail Port" />
-                                                                </div>
-
-
-                                                                <div class="col-12 mb-1">
-                                                                    <label>Username</label>
-                                                                    <input type="text" class="form-control" v-model="mailSetup.username" placeholder="e.g Username" />
-                                                                </div>
-
-
-                                                                <div class="col-12 mb-1">
-                                                                    <label>Password</label>
-                                                                    <input type="text" class="form-control" v-model="mailSetup.password" placeholder="e.g Password" />
-                                                                </div>
-
-                                                                <div class="col-12 mb-1">
-                                                                    <label>From Email</label>
-                                                                    <input type="text" class="form-control" v-model="mailSetup.fromEmail" placeholder="e.g Form Email" />
-                                                                </div>
-
-                                                                <div class="col-12 mb-1">
-                                                                    <label>From Name</label>
-                                                                    <input type="text" class="form-control" v-model="mailSetup.fromName" placeholder="e.g Form Name" />
-                                                                </div>
-
-                                                                <div class="col-12 mb-1">
-                                                                    <label>Encryption</label>
-                                                                    <select class="form-control" v-model="mailSetup.encryption">
-                                                                        <option disabled selected value="">Select Mail Encryption</option>
-                                                                        <option value="null">NULL</option>
-                                                                        <option value="tls">TLS</option>
-                                                                        <option value="ssl">SSL</option>
-                                                                    </select>
-                                                                </div>
-
-
-                                                                <div class="col-12 mt-2 d-inline-flex align-item-center">
-                                                                    <button v-if="!isLoding" type="submit" disabled class="btn btn-primary me-1 waves-effect waves-float waves-light">
-                                                                        <div class="spinner-border text-white me-1"  role="status"></div>
-                                                                        <span>Submit</span>
-                                                                    </button>
-
-                                                                    <button v-else class="btn btn-primary me-1 waves-effect waves-float waves-light">
-                                                                        Submit
-                                                                    </button>
-                                                                    <button type="reset" class="btn btn-outline-secondary waves-effect">Reset</button>
-                                                                </div>
-                                                            </div>
-                                                        </form>
                                                     </div>
                                                 </div>
 
@@ -462,13 +324,10 @@
                                                                 <button class="btn btn-primary me-1 waves-effect waves-float waves-light">
                                                                     Submit
                                                                 </button>
-                                                                <button type="reset" class="btn btn-outline-secondary waves-effect">Reset</button>
                                                             </div>
                                                         </form>
                                                     </div>
                                                 </div>
-
-
 
                                                 <div class="tab-pane fade" id="v-pills-video" role="tabpanel" aria-labelledby="v-pills-video">
                                                     <div class="card">
@@ -484,12 +343,61 @@
                                                                 <button class="btn btn-primary me-1 waves-effect waves-float waves-light">
                                                                     Submit
                                                                 </button>
-                                                                <button type="reset" class="btn btn-outline-secondary waves-effect">Reset</button>
                                                             </div>
                                                         </form>
                                                     </div>
                                                 </div>
 
+                                                <div class="tab-pane fade" id="v-pills-footer" role="tabpanel" aria-labelledby="v-pills-footer">
+                                                    <div class="card">
+                                                        <h2>Footer Content</h2>
+                                                        <form method="post" action="{{ route('admin.settings') }}" class="form form-vertical">
+                                                            @csrf
+                                                            <div>
+                                                                <input type="hidden" name="types[]" value="footer_content">
+                                                                <input type="text" class="form-control" name="footer_content"
+                                                                       @if(get_setting('footer_content')) value="{{ get_setting('footer_content') }}" @else
+                                                                       placeholder="e.g &copy; all right rechiverd" @endif/>
+                                                            </div>
+
+                                                            <div class="col-12 mt-2 d-inline-flex align-item-center">
+                                                                <button class="btn btn-primary me-1 waves-effect waves-float waves-light">
+                                                                    Submit
+                                                                </button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="tab-pane fade" id="v-pills-admin_profile" role="tabpanel" aria-labelledby="v-pills-admin_profile">
+                                                    <div class="card">
+                                                        <h2>Admin Profile</h2>
+                                                        <form method="post" action="{{ route('admin.update_profile') }}" class="form form-vertical">
+                                                            @csrf
+                                                            <div>
+                                                                <div class="col">
+                                                                    <label for="">User Name</label>
+                                                                    <input type="text" class="form-control" name="name" value="{{ auth()->user()->name }}"/>
+                                                                </div>
+                                                                <div class="col mt-1">
+                                                                    <label for="">Email</label>
+                                                                    <input type="text" class="form-control" name="email" value="{{ auth()->user()->email }}"/>
+                                                                </div>
+                                                                <div class="col mt-1">
+                                                                    <label for="">Password</label>
+                                                                    <input type="password" class="form-control" name="password" placeholder="e.g want to change then type new password!"/>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-12 mt-2 d-inline-flex align-item-center">
+                                                                <button class="btn btn-primary me-1 waves-effect waves-float waves-light">
+                                                                    Submit
+                                                                </button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

@@ -17,11 +17,11 @@
 
 {{--
 
-<!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
-        Launch demo modal
-    </button>
---}}
+{{--<!-- Button trigger modal -->--}}
+{{--    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">--}}
+{{--        Launch demo modal--}}
+{{--    </button>--}}
+
 
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -45,11 +45,10 @@
             </div>
         </div>
     </div>
-
 </div>
+
+
 @include('frontend.partials.foot')
-
-
 
 <script>
     Fancybox.bind('[data-fancybox]', {

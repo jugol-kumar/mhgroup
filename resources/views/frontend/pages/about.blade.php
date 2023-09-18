@@ -1,7 +1,7 @@
 @extends('frontend.app')
 @section('content')
     <div id="ourstory" class="about-section" style="background-image: url({{ asset('assets/frontend') }}/img/banners/banner-1.avif); background-size: cover; background-position: center;">
-        <div class="main-content text-white"
+        <div class="main-content text-white sm-mt-4rem"
              data-appear-animation="fadeInLeftShorterPlus"
              data-appear-animation-delay="300">
             @if(json_decode(get_setting('about_section'))?->section_title)
@@ -120,7 +120,7 @@
 
 
     <div class="about-section" style="background-image: url({{ asset('assets/frontend') }}/img/banners/banner-1.avif); background-size: cover; background-position: center;">
-        <div class="main-content text-white"
+        <div class="main-content text-white mt-0"
              data-appear-animation="fadeInLeftShorterPlus"
              data-appear-animation-delay="300">
             @if(json_decode(get_setting('chairman_message'))?->section_title)
@@ -147,7 +147,7 @@
 
 
     <div id="qpolicy" class="about-section" style="background-image: url({{ asset('assets/frontend') }}/img/banners/banner-2.avif); background-size: cover; background-position: center;">
-        <div class="main-content text-white"
+        <div class="main-content text-white mt-0"
              data-appear-animation="fadeInLeftShorterPlus"
              data-appear-animation-delay="300">
             @if(json_decode(get_setting('quick_policy'))?->section_title)
