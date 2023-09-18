@@ -1,5 +1,5 @@
 *{
-    font-family: Arial;
+    font-family: Arial !important;
 }
 .about-section{
     width: 100%;
@@ -717,6 +717,12 @@ span::before, span::after{
     background-position: center;
 }
 
+.project-image{
+    transition: 0.7s all ease-in-out;
+}
+.project-image:hover{
+    transform: scale(1.2);
+}
 
 #upcoming .container h1{
     color: #000000;

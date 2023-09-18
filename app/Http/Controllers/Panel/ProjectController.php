@@ -33,9 +33,16 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'image' => 'required',
+            'title' => 'required',
+            'location' => 'required'
+        ]);
+
         Project::create([
             'category_id' => $request->category_id,
             'title' => $request->title,
+            'location' => $request->location,
             'image' => store_file($request->file('image'), 'projects', 'project')
         ]);
         toast('Project Created Successfully Done...', 'success');

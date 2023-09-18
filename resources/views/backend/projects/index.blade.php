@@ -80,8 +80,13 @@
 
                             <div>
                                 <label class="form-label fw-bolder font-size font-small-4 mb-50" for="addMemberSelect">Project Name</label>
-                                <input type="text" name="title" class="form-control" placeholder="e.g Iamge Title">
+                                <input type="text" name="title" class="form-control" value="{{ old('title') }}" placeholder="e.g Project Title">
                             </div>
+                            <div class="mt-1">
+                                <label class="form-label fw-bolder font-size font-small-4 mb-50" for="addMemberSelect">Project Location</label>
+                                <input type="text" name="location" class="form-control" value="{{ old('location') }}" placeholder="e.g Project Location">
+                            </div>
+
 
                             <button class="btn btn-primary mt-1" type="submit">Save Project</button>
                         </form>
