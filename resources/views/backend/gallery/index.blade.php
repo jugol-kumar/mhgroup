@@ -1,4 +1,5 @@
 @extends('backend.app')
+
 @section('content')
     <div class="content-body">
         <div class="row" id="table-hover-row">

@@ -37,7 +37,7 @@ class GalleryController extends Controller
             'image' => 'required'
         ]);
 
-        if ($request->input('type' == 'video')){
+        if ($request->input('type') == 'video'){
             $request->validate([
                 'video_link' => 'required'
             ]);
@@ -52,7 +52,7 @@ class GalleryController extends Controller
             'title' => $request->title,
             'thumb' => $path,
             'type' => $request->input('type'),
-            'video_file' => $request->input('video_link')
+            'video' => $request->input('video_link')
         ]);
 
         toast('Added Success Gallery Item...', 'success');

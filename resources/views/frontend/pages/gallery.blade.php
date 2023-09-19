@@ -1,4 +1,11 @@
 @extends('frontend.app')
+@push('css')
+    <style>
+        .video_frincybox{
+            height:auto !important;
+        }
+    </style>
+@endpush
 @section('content')
     <div id="ourstory" class="about-section" style="background-image: url({{ asset('assets/frontend') }}/img/banners/banner-1.avif); height: 50vh; background-size: cover; background-position: center;">
         <div class="text-white"
@@ -22,7 +29,7 @@
                 <div class="row">
                     @foreach($images as $image)
                         <div class="col-md-3 mb-4">
-                            <div class="bg-white">
+                            <div class="bg-white shadow-sm">
                                 <div class="overflow-hidden">
                                     <img class="w-100 project-image" style="object-fit: cover; height: 200px" src="{{ '/storage/'.$image->thumb }}" alt="">
                                 </div>
@@ -38,13 +45,15 @@
                 <div class="row">
                     @foreach($videos as $image)
                         <div class="col-md-3 mb-4">
-                            <div class="bg-white">
-                                <div class="overflow-hidden">
-                                    <img class="w-100 project-image" style="object-fit: cover; height: 200px" src="{{ '/storage/'.$image->thumb }}" alt="">
-                                </div>
-                                <div class="text-center p-1">
-                                    <strong class="fs-6 m-0 text-black">{{ $image->title }}</strong>
-                                </div>
+                            <div class="bg-white shadow-sm video_frincybox">
+                                <a href="{{ $image->video }}" data-fancybox="video-gallery">
+                                    <div class="overflow-hidden">
+                                        <img class="w-100 project-image" style="object-fit: cover; height: 200px" src="{{ '/storage/'.$image->thumb }}" alt="">
+                                    </div>
+                                    <div class="text-center p-1">
+                                        <strong class="fs-6 m-0 text-black">{{ $image->title }}</strong>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     @endforeach
