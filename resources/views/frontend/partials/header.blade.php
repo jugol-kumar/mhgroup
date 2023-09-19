@@ -1,4 +1,4 @@
-<header id="header" class="header-transparent header-transparent-dark-bottom-border header-effect-shrink"
+<header id="header" class="{{ isset($trans) && $trans == true ? 'header-transparent' : ''  }} header-transparent-dark-bottom-border header-effect-shrink"
         data-plugin-options="{'stickyEnabled': true,
             'stickyEffect': 'shrink',
             'stickyEnableOnBoxed': true,
@@ -6,7 +6,7 @@
              'stickyChangeLogo': true,
               'stickyStartAt': 30,
               'stickyHeaderContainerHeight': 90}">
-    <div class="header-body border-top-0 bg-dark box-shadow-none">
+    <div class="header-body border-top-0  {{ isset($trans) && $trans == true ? 'backdrop-filter' : 'bg-white'}} box-shadow-none">
         <div class="header-container container">
             <div class="header-row">
                 <div class="header-column">
@@ -23,7 +23,7 @@
                         <div class="header-nav header-nav-links header-nav-dropdowns-dark header-nav-light-text order-2 order-lg-1">
                             <div class="header-nav-main header-nav-main-mobile-dark header-nav-main-square header-nav-main-dropdown-no-borders header-nav-main-effect-2 header-nav-main-sub-effect-1">
                                 <nav class="collapse">
-                                    <ul class="nav nav-pills" id="mainNav">
+                                    <ul class="nav nav-pills {{ isset($trans) && $trans == true ? 'menu-white' : 'menu-black'}}" id="mainNav">
                                         <li>
                                             <a class="nav-link {{ Route::is('home') ? 'active' : '' }}" href="{{ route('home') }}">
                                                 Home
@@ -44,6 +44,12 @@
                                         <li>
                                             <a class="dropdown-toggle nav-link {{ Route::is('project') ? 'active' : '' }}" href="{{ route('project') }}" >
                                                 Our Projects
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a class="dropdown-toggle nav-link {{ Route::is('gallery') ? 'active' : '' }}" href="{{ route('gallery') }}" >
+                                                Gallery
                                             </a>
                                         </li>
                                         <li>
