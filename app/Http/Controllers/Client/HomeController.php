@@ -38,6 +38,10 @@ class HomeController extends Controller
         return view('frontend.pages.project', compact('category'));
     }
 
+    public function gallery(){
+        return view('frontend.pages.gallery');
+    }
+
     public function contact(){
         return view('frontend.pages.contactus');
     }
