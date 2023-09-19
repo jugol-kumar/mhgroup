@@ -1,6 +1,6 @@
-*{
-    font-family: Arial !important;
-}
+/**{*/
+/*    font-family: Arial !important;*/
+/*}*/
 .about-section{
     width: 100%;
     height: 80vh;
@@ -180,9 +180,14 @@
     color: #ff0000 !important;
 }
 /*header style*/
-.header-body{
+
+.backdrop-filter{
     backdrop-filter: blur(3px) !important;
     background-color: #00000029 !important;
+}
+
+.menu-black li a{
+    color:black !important;
 }
 
 #carouselExampleControls .carousel-caption {
@@ -836,8 +841,9 @@ footer{
 }
 
 .header-main-logo{
-    width: 82px;
-    height: 100px;
+    width: 45px !important;
+    height: 96% !important;
+    object-fit: contain !important;
 }
 .carousel-main-height{
     height: 100vh;
@@ -858,9 +864,10 @@ footer{
     #header.header-effect-shrink .header-container {
         min-height: 50px !important;
     }
-    .header-main-logo{
+    .header-logo .header-main-logo{
         width: 30px !important;
-        height: auto !important;
+        height: 96% !important;
+        object-fit: contain !important;
     }
     .video_frincybox{
         height: 100% !important;
@@ -937,6 +944,7 @@ footer{
 .carousel-caption {
     top: 33%;
 }
+/*
 .carousel-item {
     position: relative;
 }
@@ -956,7 +964,7 @@ footer{
 }
 .background-overlay {
     position: absolute;
-    /*z-index: 3;*/
+    !*z-index: 3;*!
     top: 0;
     left: 0;
     width: 100%;
@@ -965,7 +973,7 @@ footer{
 }
 .carousel-control-next, .carousel-control-prev{
     z-index: 4;
-}
+}*/
 @media(max-width:1180px) {
     .carousel-caption h5 {
         font-size: 2.5rem !important;
