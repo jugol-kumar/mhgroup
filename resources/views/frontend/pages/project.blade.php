@@ -19,7 +19,7 @@
                          data-appear-animation-delay="300">
                         <h1 data-appear-animation="fadeInLeftShorterPlus"
                             data-appear-animation-delay="500"
-                            class="text-capitalize shadow-text shadow-text text-black">{{ $category->title }}</h1>
+                            class="text-capitalize text-black">{{ $category->title }}</h1>
                     </div>
                     <div class="row">
                         @foreach($category->projects as $project)

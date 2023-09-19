@@ -15,7 +15,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::paginate(10);
+        $projects = Project::with('category:id,title')->paginate(10);
         $categories = Category::all();
         return view('backend.projects.index', compact('projects', 'categories'));
     }
@@ -62,15 +62,32 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+        $categories = Category::all();
+
+        return view('backend.projects.edit', compact('project', 'categories'));
     }
 
     /**
      * Update the specified resource in storage.
+     * @param Request $request
+     * @param Project $project
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, Project $project)
     {
-        //
+        $data = $request->validate([
+            'title' => 'required',
+            'location' => 'required'
+        ]);
+
+        if ($request->hasFile('image')){
+            Storage::disk('public')->delete($project->image);
+            $data['image'] = store_file($request->file('image'), 'projects', 'project');
+        }
+
+        $project->update($data);
+        toast('Project Item Update Successfully Done...', 'success');
+        return redirect()->route('admin.project.index');
     }
 
     /**
