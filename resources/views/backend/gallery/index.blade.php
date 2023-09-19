@@ -9,6 +9,7 @@
                         <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#shareProject">Add File</button>
                     </div>
                     <div class="card-body">
+                        @include('backend.components.validationerrors')
                         <div class="table-responsive">
                             <table class="table table-hover table-striped">
                                 <thead>
@@ -16,6 +17,7 @@
                                     <th>#_Id</th>
                                     <th>Title</th>
                                     <th>Image</th>
+                                    <th>Type</th>
                                     <th>Actions</th>
                                 </tr>
                                 </thead>
@@ -25,10 +27,28 @@
                                         <td>{{ $key+1 }}</td>
                                         <td>{{ $img->title }}</td>
                                         <td>
-                                            <img src="{{ '/storage/'.$img->image }}" width="120" alt="">
+                                            <div style="width:100px;height:80px;">
+                                                <img src="{{ '/storage/'.$img->thumb }}" class="w-100 h-100"  alt="">
+                                            </div>
                                         </td>
                                         <td>
-                                            @include('backend.components.delteItem', ['id' => $img->id, 'route' => route('admin.gallery.destroy', $img->id)])
+                                            @if($img->type == 'image')
+                                                <span class="badge bg-success">Image File</span>
+                                            @else
+                                                <span class="badge bg-warning">Video File</span>
+                                            @endif
+                                        </td>
+                                        <td>
+                                            <a class="text-warning" href="{{ route('admin.gallery.edit', $img->id) }}">
+                                                <i data-feather="edit"></i>
+                                            </a>
+                                            <a  class="text-danger"  href="javascript:void(0)" onclick="deleteData({{ $img->id }})">
+                                                <i data-feather="trash"></i>
+                                            </a>
+                                            <form id="delete-form-{{ $img->id }}" method="POST" action="{{ route('admin.gallery.destroy', $img->id) }}" style="display: none">
+                                                @csrf
+                                                @method('DELETE')
+                                            </form>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -60,7 +80,7 @@
                             @include('backend.components.feviconLogo', ['name' => 'image'])
 
                             <div class="mt-1">
-                                <label class="form-label fw-bolder font-size font-small-4 mb-50" for="addMemberSelect">Video Type</label>
+                                <label class="form-label fw-bolder font-size font-small-4 mb-50" for="addMemberSelect">File Type</label>
                                 <select name="type" class="form-control form-select" onchange="setVideo(this)">
                                     <option  disabled> ~~ Select File Type ~~</option>
                                     <option value="image" selected>Image File</option>

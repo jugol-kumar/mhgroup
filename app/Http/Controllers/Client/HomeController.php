@@ -39,7 +39,11 @@ class HomeController extends Controller
     }
 
     public function gallery(){
-        return view('frontend.pages.gallery');
+
+        $images = Gallery::where('type', 'image')->get();
+        $videos = Gallery::where('type', '!=', 'image')->get();
+
+        return view('frontend.pages.gallery', compact('images', 'videos'));
     }
 
     public function contact(){

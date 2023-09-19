@@ -31,14 +31,31 @@ class GalleryController extends Controller
      */
     public function store(Request $request)
     {
-        Gallery::create([
-            'title' => $request->title,
-            'image' => store_file($request->file('image'), 'gallery', 'Gallery')
+        $request->validate([
+            'title' => 'required',
+            'type' => 'required',
+            'image' => 'required'
         ]);
 
+        if ($request->input('type' == 'video')){
+            $request->validate([
+                'video_link' => 'required'
+            ]);
+        }
 
+        $path=null;
+        if ($request->hasFile('image')){
+            $path = store_file($request->file('image'), 'gallery', 'Gallery');
+        }
 
-        toast('Added Success Gallery Image...', 'success');
+        Gallery::create([
+            'title' => $request->title,
+            'thumb' => $path,
+            'type' => $request->input('type'),
+            'video_file' => $request->input('video_link')
+        ]);
+
+        toast('Added Success Gallery Item...', 'success');
         return back();
     }
 
@@ -71,7 +88,7 @@ class GalleryController extends Controller
      */
     public function destroy(Gallery $gallery)
     {
-        Storage::disk('public')->delete($gallery->image);
+        Storage::disk('public')->delete($gallery->thumb);
         $gallery->delete();
         toast('Gallery Item Deleted...', 'success');
         return back();
