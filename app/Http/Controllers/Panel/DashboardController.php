@@ -36,9 +36,28 @@ class DashboardController extends Controller
         $arr['storage_info']  = $storageInfo;
 
 
-        return $arr;
-
-        return dd (ini_get_all());
+//        return $arr;
         return view('backend.dashboard');
     }
+
+    public function calculateMeritPosition($id)
+    {
+        // Find the student by ID
+        $student = Student::findOrFail($id);
+
+        // Calculate the student's merit position based on marks and exam duration
+        $meritPosition = Student::where('marks', '>', $student->marks)
+                ->orWhere(function ($query) use ($student) {
+                    $query->where('marks', '=', $student->marks)
+                        ->whereRaw('exam_end_time - exam_start_time > ?', [$student->exam_end_time - $student->exam_start_time]);
+                })
+                ->count() + 1;
+
+        return $meritPosition;
+    }
+
+
+
+
+
 }
