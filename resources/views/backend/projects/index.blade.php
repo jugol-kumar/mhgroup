@@ -16,6 +16,7 @@
                                 <tr>
                                     <th>#_Id</th>
                                     <th>Title</th>
+                                    <th>Category</th>
                                     <th>Image</th>
                                     <th>Actions</th>
                                 </tr>
@@ -25,13 +26,16 @@
                                         <tr>
                                             <td>{{ $key+1 }}</td>
                                             <td>{{ $project->title }}</td>
+                                            <td>{{ $project->category?->title }}</td>
                                             <td>
                                                 <img src="{{ '/storage/'.$project->image }}" width="50" alt="">
                                             </td>
                                             <td>
-                                                <a  class="btn btn-danger"  href="javascript:void(0)" onclick="deleteData({{ $project->id }})">
-                                                    <i data-feather="trash" class="me-50" ></i>
-                                                    <span>Delete</span>
+                                                <a class="text-warning" href="{{ route('admin.project.edit', $project->id) }}">
+                                                    <i data-feather="edit"></i>
+                                                </a>
+                                                <a  class="text-danger"  href="javascript:void(0)" onclick="deleteData({{ $project->id }})">
+                                                    <i data-feather="trash"></i>
                                                 </a>
 
                                                 <form id="delete-form-{{ $project->id }}" method="POST" action="{{ route('admin.project.destroy', $project->id) }}" style="display: none">

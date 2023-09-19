@@ -86,7 +86,7 @@
 
                             @include('backend.components.feviconLogo', ['name' => 'thumbnail'])
 
-                            <textarea name="content" id="editor" rows="12"></textarea>
+                            {{--<textarea name="content" id="editor" rows="12"></textarea>--}}
 
                             <div>
                                 <label class="form-label fw-bolder font-size font-small-4 mb-50" for="addMemberSelect">Video Title</label>
