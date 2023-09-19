@@ -81,6 +81,15 @@
                     <span class="menu-title text-truncate" data-i18n="Setting">Videos</span>
                 </a>
             </li>
+
+
+            <li class=" nav-item">
+                <a class="d-flex align-items-center" href="{{ route('admin.gallery.index') }}">
+                    <i data-feather="image"></i>
+                    <span class="menu-title text-truncate" data-i18n="Setting">Gallery</span>
+                </a>
+            </li>
+
             <li class=" nav-item">
                 <a class="d-flex align-items-center" href="{{ route('admin.home-arias.index') }}">
                     <i data-feather="map-pin"></i>
