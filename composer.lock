@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "84ca450d5c51a03c88bb545f02a9612e",
+    "content-hash": "a1dcc38b2eb8bf67b4c379f64c5626f9",
     "packages": [
         {
             "name": "brick/math",
@@ -1215,6 +1215,61 @@
                 }
             ],
             "time": "2021-10-07T12:57:01+00:00"
+        },
+        {
+            "name": "keensoen/cpanel-api",
+            "version": "v1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/keensoen/CPanel-Api.git",
+                "reference": "d1139889af3283c2d47af00929d91d70f94b38ac"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/keensoen/CPanel-Api/zipball/d1139889af3283c2d47af00929d91d70f94b38ac",
+                "reference": "d1139889af3283c2d47af00929d91d70f94b38ac",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Keensoen\\CPanelApi\\CPanelApiServiceProvider"
+                    ],
+                    "aliases": {
+                        "CPanelApi": "Keensoen\\CPanelApi\\CPanelApiFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Keensoen\\CPanelApi\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Agbadu Daniel S.",
+                    "email": "sesughagbadu@yahoo.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "cPanel API which enables you to connect and carry out several common task in the cpanel",
+            "homepage": "https://github.com/keensoen/cpanel-api",
+            "keywords": [
+                "cpanel-api",
+                "keensoen"
+            ],
+            "support": {
+                "source": "https://github.com/keensoen/CPanel-Api/tree/v1.2"
+            },
+            "time": "2021-03-29T18:26:41+00:00"
         },
         {
             "name": "laravel/framework",
