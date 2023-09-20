@@ -1,6 +1,4 @@
 @extends('backend.app')
-
-
 @section('content')
     <div class="content-header row">
         <div class="content-header-left col-md-9 col-12 mb-2">
@@ -111,7 +109,15 @@
                                                         aria-controls="v-pills-admin_profile"
                                                         aria-selected="false">Admin Profile</button>
 
-                                                <!--                                    <a :href="`${this.$page.props.auth.ADMIN_URL}/home-page-settings`" class="nav-link">Home Setting</a>-->
+                                                <button class="nav-link"
+                                                        id="v-pills-front_setup-tab"
+                                                        data-bs-toggle="pill"
+                                                        data-bs-target="#v-pills-front_setup"
+                                                        type="button" role="tab"
+                                                        aria-controls="v-pills-front_setup"
+                                                        aria-selected="false">Font Setup</button>
+
+<!--                                    <a :href="`${this.$page.props.auth.ADMIN_URL}/home-page-settings`" class="nav-link">Home Setting</a>-->
 {{--                                                <a href="#" class="nav-link">Footer Setting</a>--}}
                                             </div>
                                         </div>
@@ -222,9 +228,31 @@
                                                         <div class="card-body">
                                                             <form class="form form-vertical" action="{{ route('admin.settings') }}" method="post" enctype="multipart/form-data">
                                                                 @csrf
+                                                                <div class="row mb-2">
+                                                                    <div class="col">
+                                                                        <input type="hidden" name="types[]" value="apprience">
+                                                                        <label for="selectOption">Select Header Theme</label>
+                                                                        <select class="form-control" name="apprience" id="selectOption">
+                                                                            <option disabled>~~ Select Header Style ~~</option>
+                                                                            <option value="true" {{ get_setting('apprience') == 'true' ? 'selected' : '' }}>Transparent</option>
+                                                                            <option value="false" {{ get_setting('apprience') == 'false' ? 'selected' : '' }}>Background White</option>
+                                                                        </select>
+                                                                    </div>
+
+                                                                    <div class="col">
+                                                                        <input type="hidden" name="types[]" value="slider_overlay">
+                                                                        <label for="selectOption">Slider Overlay Setup</label>
+                                                                        <select class="form-control" name="slider_overlay" id="selectOption">
+                                                                            <option disabled>~~ Select Header Style ~~</option>
+                                                                            <option value="true" {{ get_setting('slider_overlay') == 'true' ? 'selected' : '' }}>Overlay</option>
+                                                                            <option value="false" {{ get_setting('slider_overlay') == 'false' ? 'selected' : '' }}>Transparent</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
                                                                 <div class="row">
                                                                     <input type="hidden" name="types[]" value="header_logo">
                                                                     <div class="col">
+                                                                        {{ get_setting('header_logo') }}
                                                                         <p>Header Logo (82 * 100) px</p>
                                                                         @include('backend.components.feviconLogo', ['name' => 'header_logo', 'bg_image' => get_setting('header_logo')])
                                                                     </div>
@@ -243,7 +271,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-
 
                                                 <div class="tab-pane fade" id="v-pills-menu" role="tabpanel" aria-labelledby="v-pills-menu">
                                                     <div class="card">
@@ -300,7 +327,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-
 
                                                 <div class="tab-pane fade" id="v-pills-map" role="tabpanel" aria-labelledby="v-pills-map">
                                                     <div class="card">
@@ -369,7 +395,6 @@
                                                     </div>
                                                 </div>
 
-
                                                 <div class="tab-pane fade" id="v-pills-admin_profile" role="tabpanel" aria-labelledby="v-pills-admin_profile">
                                                     <div class="card">
                                                         <h2>Admin Profile</h2>
@@ -392,6 +417,34 @@
 
                                                             <div class="col-12 mt-2 d-inline-flex align-item-center">
                                                                 <button class="btn btn-primary me-1 waves-effect waves-float waves-light">
+                                                                    Submit
+                                                                </button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+
+                                                <div class="tab-pane fade" id="v-pills-front_setup" role="tabpanel" aria-labelledby="v-pills-front_setup">
+                                                    <div class="card">
+                                                        <h2>Font Style Setup</h2>
+                                                        <form method="post" action="{{ route('admin.settings') }}" class="form form-vertical">
+                                                            @csrf
+                                                            <div>
+                                                                <div class="col">
+                                                                    <label for="">Import url</label>
+                                                                    <input type="hidden" name="types[]" value="font_url">
+                                                                    <input type="text" class="form-control" name="font_url" @if(get_setting('font_url')) value="{{ get_setting('font_url')  }}" @else placeholder="e.g @import font url" @endif/>
+                                                                </div>
+
+                                                                <div class="col mt-1">
+                                                                    <label for="">Font Family</label>
+                                                                    <input type="hidden" name="types[]" value="font_family">
+                                                                    <input type="text" class="form-control" name="font_family" @if(get_setting('font_family')) value="{{ get_setting('font_family')  }}" @else placeholder="e.g font family" @endif/>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-12 mt-2 d-inline-flex align-item-center">
+                                                                <button type="submit" class="btn btn-primary me-1 waves-effect waves-float waves-light">
                                                                     Submit
                                                                 </button>
                                                             </div>
