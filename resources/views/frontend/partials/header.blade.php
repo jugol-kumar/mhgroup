@@ -33,7 +33,7 @@
                                             <a class="dropdown-toggle nav-link {{ Route::is('about') ? 'active' : '' }}" href="{{ route('about') }}">
                                                 About Us
                                             </a>
-                                            <ul class="dropdown-menu">
+                                            <ul class="dropdown-menu {{ isset($trans) && $trans == true ? '' : 'whitemenu'}}">
                                                 <li><a class="dropdown-item" href="{{ route('about') }}#ourstory">Our Story</a></li>
                                                 <li><a class="dropdown-item" href="{{ route('about') }}#aspiration&vision">Aspiration & Vision </a></li>
                                                 <li><a class="dropdown-item" href="{{ route('about') }}#management">Management</a></li>

@@ -41,12 +41,10 @@
     .banner-title h1 {
         color: #fff;
         font-size: 1.2rem;
-        font-family: Arial, sans-serif;
         font-weight: normal;
     }
     /* small calption - optional */
     .caption {
-        font-family: Arial, sans-serif;
         font-size: 14px;
         font-style:italic;
     }

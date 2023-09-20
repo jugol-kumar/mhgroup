@@ -8,12 +8,45 @@
         </div>
     </div>
 
-  @include('frontend.partials.header', ['trans' => false])
+  @include('frontend.partials.header', ['trans' => get_setting('apprience') == 'true' ? true : false ])
 {{--    @include('frontend.partials.bootstrap_nav')--}}
     <div role="main" class="main min-vh-100">
         @yield('content')
     </div>
     @include('frontend.partials.copyright')
+
+
+
+<!-- Button trigger modal -->
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Welcome To MH-Group</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <input type="text" class="form-control rounded-0 my-2" placeholder="e.g john doh">
+                            {{--                            <input type="text" class="form-control rounded-0 my-2" placeholder="e.g example@email.com">--}}
+                            <input type="text" class="form-control rounded-0 my-2" placeholder="+88 01* *** ******">
+                            <button class="btn btn-secondary">Submit</button>
+                        </div>
+                    </div>
+                    <button type="button" class="btn float-end" data-bs-dismiss="modal">Skip</button>
+                </div>
+             {{--   <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>--}}
+            </div>
+        </div>
+    </div>
+
 
 
 {{--
@@ -25,7 +58,7 @@
 
 
     <!-- Modal -->
-    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+{{--    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
@@ -36,7 +69,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <input type="text" class="form-control rounded-0 my-2" placeholder="e.g john doh">
-{{--                            <input type="text" class="form-control rounded-0 my-2" placeholder="e.g example@email.com">--}}
+--}}{{--                            <input type="text" class="form-control rounded-0 my-2" placeholder="e.g example@email.com">--}}{{--
                             <input type="text" class="form-control rounded-0 my-2" placeholder="+88 01* *** ******">
                             <button class="btn btn-secondary">Submit</button>
                         </div>
@@ -45,7 +78,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>--}}
 </div>
 
 

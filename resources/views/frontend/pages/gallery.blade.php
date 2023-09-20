@@ -29,13 +29,15 @@
                 <div class="row">
                     @foreach($images as $image)
                         <div class="col-md-3 mb-4">
-                            <div class="bg-white shadow-sm">
-                                <div class="overflow-hidden">
-                                    <img class="w-100 project-image" style="object-fit: cover; height: 200px" src="{{ '/storage/'.$image->thumb }}" alt="">
-                                </div>
-                                <div class="text-center p-1">
-                                    <strong class="fs-6 m-0 text-black">{{ $image->title }}</strong>
-                                </div>
+                            <div class="bg-white shadow-sm video_frincybox">
+                                <a class="text-black" href="{{ '/storage/'.$image->thumb }}" data-fancybox="video-gallery">
+                                    <div class="overflow-hidden">
+                                        <img class="w-100 project-image" style="object-fit: cover; height: 200px" src="{{ '/storage/'.$image->thumb }}" alt="">
+                                    </div>
+                                    <div class="text-center p-1">
+                                        <strong class="fs-6 m-0 text-black">{{ $image->title }}</strong>
+                                    </div>
+                                </a>
                             </div>
                         </div>
                     @endforeach
@@ -46,7 +48,7 @@
                     @foreach($videos as $image)
                         <div class="col-md-3 mb-4">
                             <div class="bg-white shadow-sm video_frincybox">
-                                <a href="{{ $image->video }}" data-fancybox="video-gallery">
+                                <a class="text-black" href="{{ $image->video }}" data-fancybox="video-gallery">
                                     <div class="overflow-hidden">
                                         <img class="w-100 project-image" style="object-fit: cover; height: 200px" src="{{ '/storage/'.$image->thumb }}" alt="">
                                     </div>

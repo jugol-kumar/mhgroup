@@ -15,6 +15,7 @@
     window.addEventListener('load', function(){
         preeloader.style.display="none";
         preeloader.remove();
+
         checkCookie()
     });
 
@@ -46,7 +47,9 @@
     function checkCookie() {
         var user = getCookie("username");
         if (user === "") {
-            myModal.show();
+            // myModal.show();
+
+            $("#exampleModal").modal('show')
             setCookie("username", "done", 1);
         }
     }

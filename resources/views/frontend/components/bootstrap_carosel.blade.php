@@ -6,7 +6,9 @@
         @foreach($sliders as $slid)
         <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
             <img src="/storage/{{ $slid?->bg_image }}" class="d-block w-100" alt="...">
-            <div class="background-overlay"></div>
+            @if(get_setting('slider_overlay') == 'true')
+                <div class="background-overlay"></div>
+            @endif
             <div class="carousel-caption">
                 <h5 class="display-4 h4-md mb-4 font-weight-bold text-white">
                     {{ $slid?->title }}
