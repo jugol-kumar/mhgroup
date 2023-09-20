@@ -119,7 +119,7 @@
     </div>
 
 
-    <div class="about-section" style="background-image: url({{ asset('assets/frontend') }}/img/banners/banner-1.avif); background-size: cover; background-position: center;">
+{{--    <div class="about-section" style="background-image: url({{ asset('assets/frontend') }}/img/banners/banner-1.avif); background-size: cover; background-position: center;">
         <div class="main-content text-white mt-0"
              data-appear-animation="fadeInLeftShorterPlus"
              data-appear-animation-delay="300">
@@ -143,7 +143,7 @@
                     data-appear-animation-delay="1100">{{  json_decode(get_setting('chairman_message'))?->footer_text  }}</h4>
             @endif
         </div>
-    </div>
+    </div>--}}
 
 
     <div id="qpolicy" class="about-section" style="background-image: url({{ asset('assets/frontend') }}/img/banners/banner-2.avif); background-size: cover; background-position: center;">

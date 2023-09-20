@@ -50,4 +50,8 @@ class HomeController extends Controller
         return view('frontend.pages.contactus');
     }
 
+    public function chairmanMessage(){
+        return view('frontend.pages.chairman_message');
+    }
+
 }
