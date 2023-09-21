@@ -32,6 +32,7 @@ Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/chairman-message', [HomeController::class, 'chairmanMessage'])->name('chairmanMessage');
 Route::get('/project', [HomeController::class, 'project'])->name('project');
 Route::get('/gallery', [HomeController::class, 'gallery'])->name('gallery');
+Route::get('/news-and-events', [HomeController::class, 'newsEvents'])->name('newsEvents');
 Route::get('/contact-us', [HomeController::class, 'contact'])->name('contact');
 
 Route::prefix('panel')->name('admin.')->middleware('guest')->group(function (){

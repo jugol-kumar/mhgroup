@@ -117,6 +117,13 @@
             </li>
 
             <li class=" nav-item">
+                <a class="d-flex align-items-center" href="{{ route('admin.news') }}">
+                    <i data-feather="message-square"></i>
+                    <span class="menu-title text-truncate" data-i18n="Setting">News & Events</span>
+                </a>
+            </li>
+
+            <li class=" nav-item">
                 <a class="d-flex align-items-center" href="{{ route('admin.message') }}">
                     <i data-feather="message-square"></i>
                     <span class="menu-title text-truncate" data-i18n="Setting">Client Message</span>

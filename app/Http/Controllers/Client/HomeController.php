@@ -54,4 +54,8 @@ class HomeController extends Controller
         return view('frontend.pages.chairman_message');
     }
 
+    public function newsEvents(){
+        return view('frontend.pages.news_events');
+    }
+
 }
