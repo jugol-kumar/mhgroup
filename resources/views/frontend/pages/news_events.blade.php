@@ -25,50 +25,62 @@
     <section style="background: #eaeaea">
         <div class="container-fluid py-5">
             <div class="d-flex flex-column gap-4">
-                <div class="row match-height">
-                    <div class="col-md-7">
-                        <div class="card">
-                            <div class="card-body">
-                                <h2 class="card-title">DIFE Certified</h2>
-                                <div>
-                                    <p>Qtex Solutions Ltd. has achieved Department of Inspection for Factories and Establishments (DIFE) approval for Pressure Vessel & Lifting Equipment Inspection in December, 2018.</p>
-                                    <p>Qtex Solutions Ltd. has achieved Department of Inspection for Factories and Establishments (DIFE) approval for Pressure Vessel & Lifting Equipment Inspection in December, 2018.</p>
-                                    <p>Qtex Solutions Ltd. has achieved Department of Inspection for Factories and Establishments (DIFE) approval for Pressure Vessel & Lifting Equipment Inspection in December, 2018.</p>
+                @forelse($posts as $post)
+                    @if($loop->index % 2 == 0)
+                        <div class="row match-height">
+                            <div class="col-md-7">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h2 class="card-title fw-bold">{{ $post?->title }}</h2>
+                                        <div class="d-flex gap-2 align-items-baseline">
+                                            <i class="fa fa-clock"></i>
+                                            <p>{{ $post->created_at->diffForHumans() }}</p>
+                                        </div>
+                                        <div>
+                                            {!! Str::limit($post?->details, 500) !!}
+                                        </div>
+                                        <a href="{{ route('showEvent', ['slug' => $post->title, 'id' => $post->id]) }}" class="btn readMore btn-danger">Read More...</a>
+                                    </div>
                                 </div>
-                                <button class="btn readMore btn-danger">Read More...</button>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <img class="w-100 h-100" src="{{ Storage::url($post?->image) }}" alt="">
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @else
+                        <div class="row match-height">
                     <div class="col-md-5">
                         <div class="card">
                             <div class="card-body">
-                                <img class="w-100 h-100" src="{{ asset('event.webp') }}" alt="">
+                                <img class="w-100 h-100" src="{{ Storage::url($post?->image) }}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card">
+                            <div class="card-body">
+                                <h2 class="card-title fw-bold">{{ $post?->title }}</h2>
+                                <div class="d-flex gap-2 align-items-baseline">
+                                    <i class="fa fa-clock"></i>
+                                    <p>{{ $post->created_at->diffForHumans() }}</p>
+                                </div>
+                                <div>
+                                    {!! Str::limit($post?->details, 500) !!}
+                                </div>
+                                <a href="{{ route('showEvent', ['slug' => $post->title, 'id' => $post->id]) }}" class="btn readMore btn-danger">Read More...</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row match-height">
-                    <div class="col-md-5">
-                        <div class="card">
-                            <div class="card-body">
-                                <img class="w-100 h-100" src="{{ asset('event.webp') }}" alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-7">
-                        <div class="card">
-                            <div class="card-body">
-                                <h2 class="card-title">DIFE Certified</h2>
-                                <div>
-                                    <p>Qtex Solutions Ltd. has achieved Department of Inspection for Factories and Establishments (DIFE) approval for Pressure Vessel & Lifting Equipment Inspection in December, 2018.</p>
-                                    <p>Qtex Solutions Ltd. has achieved Department of Inspection for Factories and Establishments (DIFE) approval for Pressure Vessel & Lifting Equipment Inspection in December, 2018.</p>
-                                    <p>Qtex Solutions Ltd. has achieved Department of Inspection for Factories and Establishments (DIFE) approval for Pressure Vessel & Lifting Equipment Inspection in December, 2018.</p>
-                                </div>
-                                <button class="btn readMore btn-danger">Read More...</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    @endif
+                @empty
+                    <h2>No Post Found</h2>
+                @endforelse
+                {!! $posts->links() !!}
             </div>
         </div>
     </section>
