@@ -48,7 +48,7 @@
                                                     <i data-feather="more-vertical"></i>
                                                 </button>
                                                 <div class="dropdown-menu dropdown-menu-end">
-                                                    <a  class="dropdown-item"  href="{{ route('admin.home-videos.edit', $post->id) }}">
+                                                    <a  class="dropdown-item"  href="{{ route('admin.post.edit', $post->id) }}">
                                                         <i data-feather="edit" class="me-50" ></i>
                                                         <span>Edit</span>
                                                     </a>
@@ -96,7 +96,7 @@
 
                             <div>
                                 <label class="form-label fw-bolder font-size font-small-4 mb-50" for="addMemberSelect">Title</label>
-                                <input type="text" name="title" class="form-control" @if(old('title')) value="{{ old('title') }}" @else placeholder="e.g Slider Title" @endif>
+                                <input type="text" name="title" class="form-control" @if(old('title')) value="{{ old('title') }}" @else placeholder="e.g Event & News Title" @endif>
                             </div>
 
                             <div class="mt-1">
