@@ -8,6 +8,7 @@ use App\Models\Employee;
 use App\Models\Gallery;
 use App\Models\HomeArea;
 use App\Models\HomeItem;
+use App\Models\Post;
 use App\Models\Slider;
 use App\Models\Video;
 use Illuminate\Http\Request;
@@ -55,7 +56,13 @@ class HomeController extends Controller
     }
 
     public function newsEvents(){
-        return view('frontend.pages.news_events');
+        $posts = Post::query()->latest()->where('status', 'published')->paginate(10);
+        return view('frontend.pages.news_events', compact('posts'));
+    }
+
+    public function showEvents($slug=null, $id){
+        $post = Post::findOrFail($id);
+        return view('frontend.pages.show_news_events', compact('post'));
     }
 
 }

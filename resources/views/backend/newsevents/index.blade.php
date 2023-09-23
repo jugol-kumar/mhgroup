@@ -14,7 +14,7 @@
                 <div class="card">
                     <div class="card-header d-flex align-content-center justify-content-between">
                         <h4 class="card-title">News & Events</h4>
-                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#shareProject">Add Video</button>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#shareProject">Add Post</button>
                     </div>
                     <div class="card-body">
                         @include('backend.components.validationerrors')
@@ -25,37 +25,39 @@
                                     <th>#_Id</th>
                                     <th>Image</th>
                                     <th>Title</th>
-                                    <th>Video Link</th>
+                                    <th>Post Status</th>
                                     <th>Actions</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-{{--                                @forelse($videos as $key=> $video)
+                                @forelse($posts as $key=> $post)
                                     <tr>
                                         <td>{{ $key+1 }}</td>
                                         <td>
-                                            <img src="{{ '/storage/'.$video->thumbnail }}" alt="" width="120">
+                                            <img src="{{ '/storage/'.$post->image }}" alt="" width="120">
                                         </td>
                                         <td>
-                                            {{ $video->title }}
+                                            {{ Str::limit($post->title, 50) }}...
                                         </td>
-                                        <td>{{ $video->video_link }}</td>
+                                        <td>
+                                            <span class="badge {{ $post->status == 'published' ? 'bg-success' : 'bg-warning' }}">{{ $post->status }}</span>
+                                        </td>
                                         <td>
                                             <div class="dropdown">
                                                 <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0" data-bs-toggle="dropdown">
                                                     <i data-feather="more-vertical"></i>
                                                 </button>
                                                 <div class="dropdown-menu dropdown-menu-end">
-                                                    <a  class="dropdown-item"  href="{{ route('admin.home-videos.edit', $video->id) }}">
+                                                    <a  class="dropdown-item"  href="{{ route('admin.home-videos.edit', $post->id) }}">
                                                         <i data-feather="edit" class="me-50" ></i>
                                                         <span>Edit</span>
                                                     </a>
-                                                    <a  class="dropdown-item"  href="javascript:void(0)" onclick="deleteData({{ $video->id }})">
+                                                    <a  class="dropdown-item"  href="javascript:void(0)" onclick="deleteData({{ $post->id }})">
                                                         <i data-feather="trash" class="me-50" ></i>
                                                         <span>Delete</span>
                                                     </a>
 
-                                                    <form id="delete-form-{{ $video->id }}" method="POST" action="{{ route('admin.home-videos.destroy', $video->id) }}" style="display: none">
+                                                    <form id="delete-form-{{ $post->id }}" method="POST" action="{{ route('admin.post.destroy', $post->id) }}" style="display: none">
                                                         @csrf
                                                         @method('DELETE')
                                                     </form>
@@ -64,8 +66,8 @@
                                         </td>
                                     </tr>
                                 @empty
-                                    <h2>No videos Found...</h2>
-                                @endforelse--}}
+                                    <h2>No Post Found...</h2>
+                                @endforelse
                                 </tbody>
                             </table>
                            {{-- {!! $videos->links() !!}--}}
@@ -87,22 +89,24 @@
                         <h1 class="text-center mb-1 text-black" id="shareProjectTitle">Add New Post</h1>
                         <p class="text-center">Added black white overlay 1500*500 size image for thumbnail</p>
 
-                        <form action="{{ route('admin.home-videos.store') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('admin.post.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
 
                             @include('backend.components.feviconLogo', ['name' => 'thumbnail'])
 
                             <div>
                                 <label class="form-label fw-bolder font-size font-small-4 mb-50" for="addMemberSelect">Title</label>
-                                <input type="text" name="title" class="form-control" placeholder="e.g Slider Title">
+                                <input type="text" name="title" class="form-control" @if(old('title')) value="{{ old('title') }}" @else placeholder="e.g Slider Title" @endif>
                             </div>
 
                             <div class="mt-1">
                                 <label class="form-label fw-bolder font-size font-small-4 mb-50" for="full-container">Post Details</label>
                                 <div id="full-container">
-                                    <div class="editor"></div>
+                                    <div class="editor">
+                                        {!! old('details') ?? '' !!}
+                                    </div>
                                 </div>
-                                <input type="hidden" id="post_details" name="post_details">
+                                <input type="hidden" id="post_details" name="details" value="{{ old('details') ?? ''  }}">
                             </div>
 
                             <div class="mt-1">
@@ -114,7 +118,7 @@
                                 </select>
                             </div>
 
-                            <button class="btn btn-primary mt-1" type="submit">Save Slider</button>
+                            <button class="btn btn-primary mt-1" type="submit">Save</button>
                         </form>
                     </div>
             </div>

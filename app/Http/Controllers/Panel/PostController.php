@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Panel;
 use App\Http\Controllers\Controller;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -13,7 +15,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('backend.newsevents.index');
+        $posts = Post::latest()->paginate(10);
+        return view('backend.newsevents.index', compact('posts'));
     }
 
     /**
@@ -30,7 +33,25 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->validate([
+            'title' => 'required',
+            'details' => 'required',
+            'thumbnail' => 'required',
+            'status' => 'required'
+        ]);
+
+        $path=null;
+        if ($request->hasFile('thumbnail')){
+            $path = store_file($request->file('thumbnail'), 'post', 'post');
+        }
+
+        $data['user_id'] = Auth::id();
+        $data['image'] = $path;
+
+        Post::create($data);
+
+        toast('Post Added Successfully Done...', 'success');
+        return back();
     }
 
     /**
@@ -67,6 +88,9 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        Storage::disk('public')->delete($post->image);
+        $post->delete();
+        toast('Post Item Delete Successfully Done...', 'success');
+        return back();
     }
 }

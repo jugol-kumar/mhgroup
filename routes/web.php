@@ -34,6 +34,7 @@ Route::get('/chairman-message', [HomeController::class, 'chairmanMessage'])->nam
 Route::get('/project', [HomeController::class, 'project'])->name('project');
 Route::get('/gallery', [HomeController::class, 'gallery'])->name('gallery');
 Route::get('/news-and-events', [HomeController::class, 'newsEvents'])->name('newsEvents');
+Route::get('/news-and-events/{slug}/{id}', [HomeController::class, 'showEvents'])->name('showEvent');
 Route::get('/contact-us', [HomeController::class, 'contact'])->name('contact');
 
 Route::prefix('panel')->name('admin.')->middleware('guest')->group(function (){

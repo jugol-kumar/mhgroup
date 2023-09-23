@@ -20,7 +20,8 @@
                                     <th>Image</th>
                                     <th>Title</th>
                                     <th>Video Link</th>
-                                    <th>Actions</th>
+                                    <th></th>
+                                    <th></th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -34,6 +35,9 @@
                                             {{ $video->title }}
                                         </td>
                                         <td>{{ $video->video_link }}</td>
+                                        <td>
+                                            <span class="badge {{ $video?->type == 'full' ? 'bg-success' : 'bg-primary' }}">{{ $video?->type == 'full' ? 'Full Page' : 'Half Page' }}</span>
+                                        </td>
                                         <td>
                                             <div class="dropdown">
                                                 <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0" data-bs-toggle="dropdown">
