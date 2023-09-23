@@ -23,10 +23,9 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend') }}/app-assets/css/core/menu/menu-types/vertical-menu.css">
 
 
-
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend') }}/app-assets/vendors/css/editors/quill/katex.min.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend') }}/app-assets/vendors/css/editors/quill/monokai-sublime.min.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend') }}/app-assets/vendors/css/editors/quill/quill.snow.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend') }}/app-assets/vendors/css/editors/quill/quill.bubble.css">
-    <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend') }}/app-assets/css/plugins/forms/form-quill-editor.css">
+
 </head>

@@ -12,6 +12,7 @@ use App\Http\Controllers\Panel\HomeItemController;
 use App\Http\Controllers\Panel\Homevideos;
 use App\Http\Controllers\Panel\MessageController;
 use App\Http\Controllers\Panel\PageController;
+use App\Http\Controllers\Panel\PostController;
 use App\Http\Controllers\Panel\ProjectController;
 use App\Http\Controllers\Panel\SliderController;
 use Illuminate\Support\Facades\Route;
@@ -63,6 +64,8 @@ Route::prefix('panel')->name('admin.')->middleware('auth')->group(function (){
 
    Route::resource('category', CategoryController::class);
    Route::resource('project', ProjectController::class);
+
+   Route::resource('post', PostController::class);
 
    Route::get('settings', [BusinessSettingController::class, 'settingPage'])->name('settingPage');
    Route::post('settings', [BusinessSettingController::class, 'update'])->name('settings');

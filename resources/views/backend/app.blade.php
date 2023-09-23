@@ -34,11 +34,14 @@
 <script src="{{ asset('assets/backend') }}/app-assets/vendors/js/vendors.min.js"></script>
 <script src="{{ asset('assets/backend') }}/app-assets/js/core/app-menu.js"></script>
 <script src="{{ asset('assets/backend') }}/app-assets/js/core/app.js"></script>
-{{--<script src="{{ asset('assets/backend') }}/app-assets/js/ck-editor.min.js"></script>--}}
 
-<script src="https://cdn.ckeditor.com/4.8.0/full-all/ckeditor.js"></script>
+
+<script src="{{ asset('assets/backend') }}/app-assets/vendors/js/editors/quill/katex.min.js"></script>
+<script src="{{ asset('assets/backend') }}/app-assets/vendors/js/editors/quill/highlight.min.js"></script>
+<script src="{{ asset('assets/backend') }}/app-assets/vendors/js/editors/quill/quill.min.js"></script>
+{{--<script src="{{ asset('assets/backend') }}/app-assets/js/scripts/forms/form-quill-editor.js"></script>--}}
+
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
 <script src="{{ asset('assets/backend') }}/app-assets/js/script.js"></script>
 <script>
     $(window).on('load', function() {
@@ -50,18 +53,80 @@
         }
     })
 
-    CKEDITOR.replace('editor', {
-        skin: 'moono',
-        enterMode: CKEDITOR.ENTER_BR,
-        shiftEnterMode:CKEDITOR.ENTER_P,
-        toolbar: [{ name: 'basicstyles', groups: [ 'basicstyles' ], items: [ 'Bold', 'Italic', 'Underline', "-", 'TextColor', 'BGColor' ] },
-            { name: 'styles', items: [ 'Format', 'Font', 'FontSize' ] },
-            { name: 'justify', groups: [ 'blocks', 'align' ], items: [ 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock' ] },
-            { name: 'paragraph', groups: [ 'list', 'indent' ], items: [ 'NumberedList', 'BulletedList', '-'] },
-            { name: 'insert', items: [ 'Image'] },
-        ],
+
+
+    var fullEditor = new Quill('#full-container .editor', {
+        bounds: '#full-container .editor',
+        modules: {
+            formula: true,
+            syntax: true,
+            toolbar: [
+                [
+                    {
+                        font: []
+                    },
+                    {
+                        size: []
+                    }
+                ],
+                ['bold', 'italic', 'underline', 'strike'],
+                [
+                    {
+                        color: []
+                    },
+                    {
+                        background: []
+                    }
+                ],
+                [
+                    {
+                        script: 'super'
+                    },
+                    {
+                        script: 'sub'
+                    }
+                ],
+                [
+                    {
+                        header: '1'
+                    },
+                    {
+                        header: '2'
+                    },
+                    'blockquote',
+                    'code-block'
+                ],
+                [
+                    {
+                        list: 'ordered'
+                    },
+                    {
+                        list: 'bullet'
+                    },
+                    {
+                        indent: '-1'
+                    },
+                    {
+                        indent: '+1'
+                    }
+                ],
+                [
+                    'direction',
+                    {
+                        align: []
+                    }
+                ],
+                ['link', 'image', 'video', 'formula'],
+                ['clean']
+            ]
+        },
+        theme: 'snow'
     });
 
+    fullEditor.on('text-change', function(delta, oldDelta, source) {
+        console.log(fullEditor.container.firstChild.innerHTML)
+        $('#post_details').val(fullEditor.container.firstChild.innerHTML);
+    });
 </script>
 
 @stack('js')

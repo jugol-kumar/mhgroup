@@ -117,8 +117,8 @@
             </li>
 
             <li class=" nav-item">
-                <a class="d-flex align-items-center" href="{{ route('admin.news') }}">
-                    <i data-feather="message-square"></i>
+                <a class="d-flex align-items-center" href="{{ route('admin.post.index') }}">
+                    <i data-feather="rss"></i>
                     <span class="menu-title text-truncate" data-i18n="Setting">News & Events</span>
                 </a>
             </li>

@@ -50,13 +50,13 @@
 
                                         <li>
                                             <a class="dropdown-toggle nav-link {{ Route::is('gallery') ? 'active' : '' }}" href="{{ route('gallery') }}" >
-                                                Media And Publication
+                                                Media & Publication
                                             </a>
                                         </li>
 
                                         <li>
                                             <a class="dropdown-toggle nav-link {{ Route::is('gallery') ? 'active' : '' }}" href="{{ route('newsEvents') }}" >
-                                                News And Events
+                                                News & Events
                                             </a>
                                         </li>
                                         <li>

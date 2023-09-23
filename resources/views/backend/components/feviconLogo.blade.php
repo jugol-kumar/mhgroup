@@ -99,7 +99,7 @@
     <div class="box">
         <div class="js--image-preview"></div>
         <div class="upload-options">
-            <label>
+            <label class="text-capitalize">
                 {{ $name }}
                 <input type="file" name="{{ $name }}" class="image-upload" accept="image/*" />
             </label>

@@ -1,5 +1,11 @@
 @extends('backend.app')
-
+@push('css')
+    <style>
+        .ql-container{
+            height:300px !important;
+        }
+    </style>
+@endpush
 
 @section('content')
     <div class="content-body">
@@ -78,7 +84,7 @@
                 </div>
                 <div class="modal-body px-sm-5 mx-50 pb-4">
 
-                        <h1 class="text-center mb-1 text-black" id="shareProjectTitle">Add New Video</h1>
+                        <h1 class="text-center mb-1 text-black" id="shareProjectTitle">Add New Post</h1>
                         <p class="text-center">Added black white overlay 1500*500 size image for thumbnail</p>
 
                         <form action="{{ route('admin.home-videos.store') }}" method="post" enctype="multipart/form-data">
@@ -86,34 +92,25 @@
 
                             @include('backend.components.feviconLogo', ['name' => 'thumbnail'])
 
-                            {{--<textarea name="content" id="editor" rows="12"></textarea>--}}
-
                             <div>
-                                <label class="form-label fw-bolder font-size font-small-4 mb-50" for="addMemberSelect">Video Title</label>
+                                <label class="form-label fw-bolder font-size font-small-4 mb-50" for="addMemberSelect">Title</label>
                                 <input type="text" name="title" class="form-control" placeholder="e.g Slider Title">
                             </div>
 
                             <div class="mt-1">
-                                <label class="form-label fw-bolder font-size font-small-4 mb-50" for="addMemberSelect">Button Name</label>
-                                <input type="text" name="button_name" class="form-control" placeholder="e.g button title">
+                                <label class="form-label fw-bolder font-size font-small-4 mb-50" for="full-container">Post Details</label>
+                                <div id="full-container">
+                                    <div class="editor"></div>
+                                </div>
+                                <input type="hidden" id="post_details" name="post_details">
                             </div>
 
                             <div class="mt-1">
-                                <label class="form-label fw-bolder font-size font-small-4 mb-50" for="addMemberSelect">Button Link</label>
-                                <input type="text" name="btn_link" class="form-control" value="#">
-                            </div>
-
-                            <div class="mt-1">
-                                <label class="form-label fw-bolder font-size font-small-4 mb-50" for="addMemberSelect">Video Link</label>
-                                <input type="text" name="video_link" class="form-control" placeholder="youtube video link">
-                            </div>
-
-                            <div class="mt-1">
-                                <label class="form-label fw-bolder font-size font-small-4 mb-50" for="addMemberSelect">Video Type</label>
-                                <select name="type" class="form-control form-select">
-                                    <option selected disabled> ~~ Select Video Type ~~</option>
-                                    <option value="full">Full page video</option>
-                                    <option value="half">Half page video</option>
+                                <label class="form-label fw-bolder font-size font-small-4 mb-50" for="addMemberSelect">Post Status</label>
+                                <select name="status" class="form-control form-select">
+                                    <option  disabled> ~~ Select Post Status ~~</option>
+                                    <option value="published" selected>Published</option>
+                                    <option value="unpublished">Unpublished</option>
                                 </select>
                             </div>
 

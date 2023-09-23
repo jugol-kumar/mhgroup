@@ -252,7 +252,6 @@
                                                                 <div class="row">
                                                                     <input type="hidden" name="types[]" value="header_logo">
                                                                     <div class="col">
-                                                                        {{ get_setting('header_logo') }}
                                                                         <p>Header Logo (82 * 100) px</p>
                                                                         @include('backend.components.feviconLogo', ['name' => 'header_logo', 'bg_image' => get_setting('header_logo')])
                                                                     </div>
