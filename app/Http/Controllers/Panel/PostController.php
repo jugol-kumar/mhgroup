@@ -79,7 +79,21 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $data = $request->validate([
+            'title' => 'required',
+            'details' => 'required',
+            'thumbnail' => 'nullable',
+            'status' => 'required'
+        ]);
+
+        if ($request->hasFile('thumbnail')){
+            Storage::disk('public')->delete($post->thumbnail);
+            $data['thumbnail'] = store_file($request->file('thumbnail'), 'post', 'post');
+        }
+
+        $post->update($data);
+        toast('Post Update Successfully Done...', 'success');
+        return redirect()->route('admin.post.index');
     }
 
     /**
