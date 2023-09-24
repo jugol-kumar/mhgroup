@@ -928,6 +928,15 @@ footer{
         margin-top:4rem !important;
     }
 
+    #header .header-nav-main.header-nav-main-mobile-dark:before{
+        background: white !important;
+    }
+    #header .header-nav-main.header-nav-main-mobile-dark nav>ul li{
+        border-bottom: 1px solid #f7f7f7 !important;
+    }
+    #header .header-nav-main.header-nav-main-mobile-dark nav>ul li a:hover{
+        background: #f7f7f7 !important;
+    }
 }
 
 @media (max-width: 768px) {

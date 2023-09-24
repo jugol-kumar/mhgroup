@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Panel;
 use App\Http\Controllers\Controller;
 use App\Models\Lead;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class MessageController extends Controller
 {
@@ -14,14 +15,30 @@ class MessageController extends Controller
     }
 
     public function messageStore(Request $request){
-        $data = $request->validate([
+
+//        $data = $request->validate([
+//            'name' => 'required|max:30',
+//            'email' => 'required|email',
+//            'message' => 'sometimes'
+//        ]);
+
+        $data = Validator::make($request->all(), [
             'name' => 'required|max:30',
             'email' => 'required|email',
-            'message' => 'required'
+            'message' => 'sometimes'
         ]);
 
-        Lead::create($data);
 
+        if ($data->fails()){
+            toast('Have Some Problem, Try Again...', 'error');
+            return back();
+        }
+
+        Lead::create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'message' => $request->input('message') ?? NULL
+        ]);
         toast('Send For Process Your Request', 'success');
         return back()->with('message', 'Send For Process Your Request');
     }

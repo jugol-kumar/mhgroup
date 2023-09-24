@@ -10,14 +10,17 @@
                 <div class="background-overlay"></div>
             @endif
             <div class="carousel-caption">
-                <h5 class="display-4 h4-md mb-4 font-weight-bold text-white">
+                <h5 class="display-4 h4-md mb-4 font-weight-bold text-white appear-animation"
+                    data-appear-animation="fadeInLeftShorterPlus"
+                    data-appear-animation-delay="500"
+                    data-plugin-options="{'minWindowWidth': 0}">
                     {{ $slid?->title }}
                 </h5>
-                <p class="h4 mb-5 pb-3 text-white">
+                <p class="h4 mb-5 pb-3 text-white appear-animation" data-appear-animation="fadeInLeftShorterPlus" data-appear-animation-delay="1100">
                     {{ $slid?->descriptions }}
                 </p>
                 @if($slid->button_name)
-                    <a href="" class="btn btn-lg btn-danger text-white">View More</a>
+                    <a href="" class="btn btn-lg btn-danger text-white appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="1500">View More</a>
                 @endif
             </div>
         </div>

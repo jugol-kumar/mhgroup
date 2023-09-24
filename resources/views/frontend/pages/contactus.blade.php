@@ -23,7 +23,7 @@
             <div class="col-lg-8">
                 <h2 class="font-weight-bold text-color-dark">- Send a Message</h2>
                 <p>{{ get_setting('about') }}</p>
-                <form class="custom-contact-form-style-1" action="{{ route('admin.message.create') }}"  method="POST">
+                <form class="custom-contact-form-style-1" action="{{ route('message.create') }}"  method="POST">
                     @csrf
                     @if(Session::has('message'))
                         <div class="contact-form-success alert alert-success d-none mt-4">

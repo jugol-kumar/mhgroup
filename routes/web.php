@@ -36,6 +36,7 @@ Route::get('/gallery', [HomeController::class, 'gallery'])->name('gallery');
 Route::get('/news-and-events', [HomeController::class, 'newsEvents'])->name('newsEvents');
 Route::get('/news-and-events/{slug}/{id}', [HomeController::class, 'showEvents'])->name('showEvent');
 Route::get('/contact-us', [HomeController::class, 'contact'])->name('contact');
+Route::post('messages-create', [MessageController::class, 'messageStore'])->name('message.create');
 
 Route::prefix('panel')->name('admin.')->middleware('guest')->group(function (){
     Route::get('login', [LoginController::class, 'showLoginForm'])->name('showLoginForm');
@@ -48,7 +49,6 @@ Route::prefix('panel')->name('admin.')->middleware('auth')->group(function (){
 
 
    Route::get('messages', [MessageController::class, 'message'])->name('message');
-   Route::post('messages-create', [MessageController::class, 'messageStore'])->name('message.create');
    Route::delete('messages-delete/{id}', [MessageController::class, 'messageDelete'])->name('message.delete');
 
    Route::resource('slider', SliderController::class);

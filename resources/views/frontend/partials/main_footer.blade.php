@@ -89,7 +89,7 @@
             </div>
             <div class="col-lg-6 custom-sm-margin-top">
                 <h2 class="font-weight-bold">- Write Us</h2>
-                <form action="{{ route('admin.message.create') }}" method="POST" class="custom-contact-form-style-1 form-errors-light" >
+                <form action="{{ route('message.create') }}" method="POST" class="custom-contact-form-style-1 form-errors-light" >
                     @csrf
                     @if(Session::has('message'))
                     <div class="contact-form-success alert alert-success d-none mt-4">

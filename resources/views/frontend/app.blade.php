@@ -31,10 +31,19 @@
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <input type="text" class="form-control rounded-0 my-2" placeholder="e.g john doh">
+                            <form action="{{ route('message.create') }}" method="POST" class="custom-contact-form-style-1 form-errors-light" >
+                                @csrf
+                                <input type="text" value="" data-msg-required="Please enter your name."
+                                       maxlength="100" class="form-control" name="name"
+                                       placeholder="Name*">
                             {{--                            <input type="text" class="form-control rounded-0 my-2" placeholder="e.g example@email.com">--}}
-                            <input type="text" class="form-control rounded-0 my-2" placeholder="+88 01* *** ******">
-                            <button class="btn btn-secondary">Submit</button>
+
+                                <input type="email" value=""
+                                       data-msg-required="Please enter your email address."
+                                       data-msg-email="Please enter a valid email address."
+                                       maxlength="100" class="form-control my-2" name="email" placeholder="Email*">
+                                <button class="btn btn-secondary" type="submit">Submit</button>
+                            </form>
                         </div>
                     </div>
                     <button type="button" class="btn float-end" data-bs-dismiss="modal">Skip</button>
