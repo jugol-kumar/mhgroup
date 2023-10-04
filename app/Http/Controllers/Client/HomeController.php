@@ -9,6 +9,7 @@ use App\Models\Gallery;
 use App\Models\HomeArea;
 use App\Models\HomeItem;
 use App\Models\Post;
+use App\Models\Project;
 use App\Models\Slider;
 use App\Models\Video;
 use Illuminate\Http\Request;
@@ -38,6 +39,13 @@ class HomeController extends Controller
         $category = Category::with('projects')->get();
         return view('frontend.pages.project', compact('category'));
     }
+
+    public function singleProject($slug = null, $id){
+        $project = Project::with('category')->where('id', $id)->first();
+        $projects = Project::all();
+        return view('frontend.pages.single_project', compact('project', 'projects'));
+    }
+
 
     public function gallery(){
 

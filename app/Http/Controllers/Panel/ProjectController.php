@@ -16,8 +16,7 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::with('category:id,title')->paginate(10);
-        $categories = Category::all();
-        return view('backend.projects.index', compact('projects', 'categories'));
+        return view('backend.projects.index', compact('projects'));
     }
 
     /**
@@ -25,7 +24,8 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        return view('backend.projects.create', compact('categories'));
     }
 
     /**

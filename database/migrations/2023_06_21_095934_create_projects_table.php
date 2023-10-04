@@ -17,7 +17,20 @@ return new class extends Migration
             $table->foreignIdFor(Category::class, 'category_id')->constrained('categories')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('title');
             $table->string('location')->nullable();
+            $table->string('apartment_size');
+            $table->string('land_area');
+            $table->string('no_floors');
+            $table->string('apartment_floor');
+            $table->string('bedroom');
+            $table->string('bathroom');
+            $table->string('launch_date');
+            $table->string('collection');
+
+            $table->string('thumbnail');
             $table->string('image');
+
+            $table->string('full_address');
+            $table->longText('map_location');
             $table->timestamps();
         });
     }
