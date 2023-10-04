@@ -6,7 +6,7 @@
             </div>
 
             <div class="col-lg-6 text-end">
-                <p>Make & Maintenance by <a href="https://creativetechpark.com/" target="_blank">Creativetechpark</a></p>
+                <p>Make & Maintenance by <a href="https://creativetechpark.com/" target="_blank">Web site design company</a> Creativetechpark</p>
             </div>
         </div>
     </div>

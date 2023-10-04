@@ -52,8 +52,8 @@
           {!! get_setting('font_url')  !!}
         body, h1, h2, h3, h4, h5, h6, p, a, .video_content h1, .banner-title h1{
             font-family: {!! get_setting('font_family') ? get_setting('font_family') : 'Arial, sans-serif'  !!} !important;
+              scroll-behavior: smooth !important;
         }
-
 
         #preeloader {
             backdrop-filter: blur(10px);
