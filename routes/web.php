@@ -66,6 +66,13 @@ Route::prefix('panel')->name('admin.')->middleware('auth')->group(function (){
 
    Route::resource('category', CategoryController::class);
    Route::resource('project', ProjectController::class);
+   Route::put('project/images-update/{id}', [ProjectController::class, 'updateImage'] )->name('project.updateImage');
+   Route::put('project/featured-images-update/{id}', [ProjectController::class, 'updateFeaturedImage'] )->name('project.updateFeaturedImage');
+   Route::put('project/lifestyle-images-update/{id}', [ProjectController::class, 'updateLifestyleImage'] )->name('project.updateLifestyleImage');
+   Route::put('project/floor-images-update/{id}', [ProjectController::class, 'updateFLoorImage'] )->name('project.updateFLoorImage');
+   Route::delete('project/delete-featured-image/{id}', [ProjectController::class, 'deleteFeaturedImage'] )->name('project.deleteFeaturedImage');
+   Route::delete('project/delete-lifestyle-image/{id}', [ProjectController::class, 'deleteLifestyleImage'] )->name('project.deleteLifestyleImage');
+   Route::delete('project/delete-floor-image/{id}', [ProjectController::class, 'deleteFloorImage'] )->name('project.deleteFloorImage');
 
    Route::resource('post', PostController::class);
 

@@ -703,6 +703,7 @@ span::before, span::after{
     color: white;
     font-weight: bolder;
     text-shadow: 2px 2px 0px #fbaaaa;
+    z-index: 1;
 }
 .dropdown-menu {
     position: absolute;
@@ -897,8 +898,11 @@ footer{
         margin:0 !important;
     }
     .about-section{
-        height: auto !important;
+        /*height: auto !important;*/
         padding: 2rem 0 !important;
+    }
+    .about-section .page-title{
+        z-index: 1;
     }
     .about-section .main-content{
         max-width: 93% !important;

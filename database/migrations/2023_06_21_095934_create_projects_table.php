@@ -19,17 +19,20 @@ return new class extends Migration
             $table->string('location')->nullable();
             $table->string('apartment_size');
             $table->string('land_area');
-            $table->string('no_floors');
-            $table->string('apartment_floor');
+            $table->string('number_floors');
+            $table->string('number_apartment');
             $table->string('bedroom');
             $table->string('bathroom');
             $table->string('launch_date');
             $table->string('collection');
 
+            $table->string('builders_logo');
+            $table->text('about_builders');
+
             $table->string('thumbnail');
             $table->string('image');
 
-            $table->string('full_address');
+            $table->string('address');
             $table->longText('map_location');
             $table->timestamps();
         });

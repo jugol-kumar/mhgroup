@@ -87,12 +87,13 @@
             cursor: zoom-in;
             object-fit: contain;
         }
-        .floor-plan img:hover{
+        .floor-plan .image:hover{
             filter: none;
             transform: scale(1.5);
         }
         .map-location iframe{
             min-height:550px;
+            min-width: 100%;
         }
         .swipper-carousel .swiper-slide{
             min-height:350px;
@@ -100,6 +101,9 @@
         }
         .similer-projects-bg{
             background:#e8e8e8;
+        }
+        .builder_logo{
+            max-width:300px;
         }
     </style>
 @endpush
@@ -111,28 +115,43 @@
                 <div class="swiper mySwiper">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
-                            <img class="w-100 h-100" src="https://images.pexels.com/photos/3663038/pexels-photo-3663038.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" />
+                            <img class="w-100 h-100" src="/storage/{{ $project?->image }}" alt="" />
                         </div>
-                  {{--      <div class="swiper-slide">
-                            <img class="w-100 h-100" src="https://images.pexels.com/photos/3663038/pexels-photo-3663038.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" />
-                        </div>
-                        <div class="swiper-slide">
-                            <img class="w-100 h-100" src="https://images.pexels.com/photos/3663038/pexels-photo-3663038.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" />
-                        </div>--}}
                     </div>
                 </div>
                 <div class="mt-3">
-                    <h2 class="font-weight-normal text-white text-uppercase">Megha house building</h2>
+                    <h2 class="font-weight-normal text-white text-uppercase">{{ $project?->title }}</h2>
                 </div>
             </div>
             <div class="slider-bottom-section mt-3">
                 <div class="project-header-details d-flex align-items-center justify-content-around">
-                    @for($i=0; $i< 4; $i++)
-                    <div class="p-5 d-flex align-items-center justify-content-center text-center flex-column">
-                        <p class="mb-1 fs-6 font-weight-normal text-gray">Location</p>
-                        <p class="m-0 p-0 fs-5 text-white">Dhaka</p>
-                    </div>
-                    @endfor
+                    @if($project?->location)
+                        <div class="p-5 d-flex align-items-center justify-content-center text-center flex-column">
+                            <p class="mb-1 fs-6 font-weight-normal text-gray">Location</p>
+                            <p class="m-0 p-0 fs-5 text-white">{{ $project?->location}}</p>
+                        </div>
+                    @endif
+
+                    @if($project?->apartment_size)
+                        <div class="p-5 d-flex align-items-center justify-content-center text-center flex-column">
+                            <p class="mb-1 fs-6 font-weight-normal text-gray">Apartment Size</p>
+                            <p class="m-0 p-0 fs-5 text-white">{{ $project?->apartment_size}}</p>
+                        </div>
+                    @endif
+
+                    @if($project?->launch_date)
+                        <div class="p-5 d-flex align-items-center justify-content-center text-center flex-column">
+                            <p class="mb-1 fs-6 font-weight-normal text-gray">Completion Date</p>
+                            <p class="m-0 p-0 fs-5 text-white">{{ Carbon\Carbon::parse($project?->launch_date)->format("F Y") }}</p>
+                        </div>
+                    @endif
+
+                    @if($project?->category)
+                        <div class="p-5 d-flex align-items-center justify-content-center text-center flex-column">
+                            <p class="mb-1 fs-6 font-weight-normal text-gray">Status</p>
+                            <p class="m-0 p-0 fs-5 text-white">{{ $project?->category?->title }}</p>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>
@@ -140,11 +159,11 @@
     <div class="bg-white">
         <div class="container">
             <div class="d-flex align-items-center gap-5 py-5">
-                <div>
-                    <img src="https://btibd.com/wp-content/uploads/2019/04/three-897702-150x150.png.webp" alt="">
+                <div class="builder_logo">
+                    <img class="w-100" src="/storage/{{ $project?->builders_logo }}" alt="">
                 </div>
                 <div>
-                    <p>Smart living features highlight the lake-facing, palatial 7000+sft units, in Gulshan 2. Stunning amenities paired with top-notch health and wellness facilities enable a high-powered and luxurious lifestyle for its residents. Be a part of the niche and exclusive high-end address with only 14 stylish units. Ask us about adding a ‘fresh air ventilation system’ to your super fancy home!</p>
+                    <p>{!! $project?->about_builders !!}</p>
                 </div>
             </div>
         </div>
@@ -247,7 +266,7 @@
             <div class="row match-height">
                 <div class="col-md-5 thumb-image">
                     <div class="main-image">
-                        <img class="w-100 h-auto object-fit-contain" src="/storage/{{ $project->image }}" alt="">
+                        <img class="w-100 h-auto object-fit-contain" src="/storage/{{ $project->thumbnail }}" alt="">
                     </div>
 {{--                    <h2 class="text-uppercase font-weight-medium mt-4">At a glance</h2>--}}
                 </div>
@@ -264,7 +283,7 @@
                                 </td>
                                 <td class="text-right">
                                     <span class="text-capitalize">
-                                        Plot-05, Road-03, Mirpur-10, Dhaka
+                                        {{ $project?->address }}
                                     </span>
                                 </td>
                             </tr>
@@ -275,7 +294,7 @@
                                 </td>
                                 <td class="text-right">
                                     <span class="text-capitalize">
-                                        Plot-05, Road-03, Mirpur-10, Dhaka
+                                        {{ $project?->land_area }}
                                     </span>
                                 </td>
                             </tr>
@@ -286,7 +305,7 @@
                                 </td>
                                 <td class="text-right">
                                     <span class="text-capitalize">
-                                        Plot-05, Road-03, Mirpur-10, Dhaka
+                                        {{ $project?->number_floors }}
                                     </span>
                                 </td>
                             </tr>
@@ -297,7 +316,7 @@
                                 </td>
                                 <td class="text-right">
                                     <span class="text-capitalize">
-                                        Plot-05, Road-03, Mirpur-10, Dhaka
+                                        {{ $project?->number_apartment }}
                                     </span>
                                 </td>
                             </tr>
@@ -308,7 +327,7 @@
                                 </td>
                                 <td class="text-right">
                                     <span class="text-capitalize">
-                                        Plot-05, Road-03, Mirpur-10, Dhaka
+                                        {{ $project?->apartment_size }}
                                     </span>
                                 </td>
                             </tr>
@@ -319,7 +338,7 @@
                                 </td>
                                 <td class="text-right">
                                     <span class="text-capitalize">
-                                        Plot-05, Road-03, Mirpur-10, Dhaka
+                                        {{ $project?->bedroom }}
                                     </span>
                                 </td>
                             </tr>
@@ -330,7 +349,7 @@
                                 </td>
                                 <td class="text-right">
                                     <span class="text-capitalize">
-                                        Plot-05, Road-03, Mirpur-10, Dhaka
+                                        {{ $project?->bathroom }}
                                     </span>
                                 </td>
                             </tr>
@@ -341,7 +360,7 @@
                                 </td>
                                 <td class="text-right">
                                     <span class="text-capitalize">
-                                        Plot-05, Road-03, Mirpur-10, Dhaka
+                                        {{ Carbon\Carbon::parse($project?->launch_date)->format("F Y") }}
                                     </span>
                                 </td>
                             </tr>
@@ -352,7 +371,7 @@
                                 </td>
                                 <td class="text-right">
                                     <span class="text-capitalize">
-                                        Plot-05, Road-03, Mirpur-10, Dhaka
+                                        {{ $project?->collection }}
                                     </span>
                                 </td>
                             </tr>
@@ -374,49 +393,13 @@
             <div class="gallery full">
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="image">
-                                <img src="https://images.pexels.com/photos/3663038/pexels-photo-3663038.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" />
-                            </div>
-                            <div class="overlay">
-                                <div class="text-wrap">
-                                    <div class="caption">
-                                        <p>
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto quasi aliquam eius, blanditiis quae, explicabo praesentium corporis tempora quam et rem nulla repellendus placeat, nisi omnis earum sunt suscipit aspernatur!
-                                        </p>
-                                    </div>
+                        @foreach($project?->featuredImages as $image)
+                            <div class="swiper-slide">
+                                <div class="image">
+                                    <img src="/storage/{{ $image->image }}" alt="" />
                                 </div>
                             </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="image">
-                                <img src="https://images.pexels.com/photos/3551207/pexels-photo-3551207.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" />
-                            </div>
-
-                            <div class="overlay">
-                                <div class="text-wrap">
-                                    <div class="caption">
-                                        <p>
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto quasi aliquam eius, blanditiis quae, explicabo praesentium corporis tempora quam et rem nulla repellendus placeat, nisi omnis earum sunt suscipit aspernatur!
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="image">
-                                <img src="https://images.pexels.com/photos/3375493/pexels-photo-3375493.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" />
-                            </div>
-                            <div class="overlay">
-                                <div class="text-wrap">
-                                    <div class="caption">
-                                        <p>
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto quasi aliquam eius, blanditiis quae, explicabo praesentium corporis tempora quam et rem nulla repellendus placeat, nisi omnis earum sunt suscipit aspernatur!
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
 
@@ -430,21 +413,13 @@
             <div class="gallery thumb">
                 <div class="swiper-container">
                     <div class="swiper-wrapper justify-content-center">
-                        <div class="swiper-slide">
-                            <div class="image">
-                                <img src="https://images.pexels.com/photos/3663038/pexels-photo-3663038.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
+                        @foreach($project?->featuredImages as $image)
+                            <div class="swiper-slide">
+                                <div class="image">
+                                    <img src="/storage/{{ $image->image }}" alt="" />
+                                </div>
                             </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="image">
-                                <img src="https://images.pexels.com/photos/3551207/pexels-photo-3551207.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="image">
-                                <img src="https://images.pexels.com/photos/3375493/pexels-photo-3375493.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
 
@@ -457,6 +432,7 @@
             </div>
         </div>
     </div>
+
     <div class="image-gallery" id="exprience">
         <div class="container pb-5">
             <div>
@@ -464,48 +440,49 @@
             </div>
         </div>
         <div class="swiper-container gallery-swipper">
-            <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
-                <!-- Slides -->
-                <div class="swiper-slide">
-                    <img class="w-100 h-100" src="https://images.pexels.com/photos/3663038/pexels-photo-3663038.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" />
-                </div>
-                <div class="swiper-slide">
-                    <img class="w-100 h-100" src="https://images.pexels.com/photos/3663038/pexels-photo-3663038.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" />
-                </div>
-                <div class="swiper-slide">
-                    <img class="w-100 h-100" src="https://images.pexels.com/photos/3663038/pexels-photo-3663038.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" />
-                </div>
+                @foreach($project?->lifestyleImages as $image)
+                    <div class="swiper-slide">
+                        <img class="w-100 h-100 object-fit-cover" src="/storage/{{ $image->image }}" alt="" />
+                    </div>
+                @endforeach
             </div>
             <!-- If we need navigation buttons -->
             <button class="swiper-next-button gallery-swiper-prev btn btn-danger">Next</button>
             <button class="swiper-next-button gallery-swiper-next btn btn-danger">Prev</button>
         </div>
     </div>
+
     <div class="bg-black">
         <div class="container py-5">
             <div class="mb-5">
                 <h2 class="text-uppercase text-white">FLOOR PLANS</h2>
                 <div class="row floor-plan">
-                    @for($i=0; $i < 8; $i++)
+                    @foreach($project?->planImages as $image)
                         <div class="col-md-2 mb-3 overflow-hidden">
-                            <img class="w-100 h-100" src="https://images.pexels.com/photos/3663038/pexels-photo-3663038.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" />
+                            <a class="text-black" href="/storage/{{ $image->image }}" data-fancybox="video-gallery">
+                                <div class="overflow-hidden">
+                                    <img class="image w-100 h-100" src="/storage/{{ $image->image }}" alt="" />
+                                </div>
+                            </a>
                         </div>
-                    @endfor
+                    @endforeach
                 </div>
             </div>
             <div class="mt-5 map-location">
                 <h2 class="text-uppercase text-white">Map Location</h2>
-                <iframe class="w-100 h-100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14604.944003271834!2d90.42194549999999!3d23.774608999999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c7a1f33e7d81%3A0xa7d45a97b942ae04!2z4KaV4Ka-4Kao4Ka-4Kah4Ka_4Kef4Ka-4KaoIOCmh-CmieCmqOCmv-CmreCmvuCmsOCnjeCmuOCmv-Cmn-CmvyDgpoXgpqsg4Kas4Ka-4KaC4Kay4Ka-4Kam4KeH4Ka2!5e0!3m2!1sbn!2sbd!4v1696336895756!5m2!1sbn!2sbd" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                {!! $project?->map_location !!}
             </div>
         </div>
     </div>
+
+
     <div class="similer-projects-bg py-5">
         <div class="container overflow-hidden">
             <h2 class="text-uppercase">Also Your Like</h2>
             <div class="swiper swipper-carousel">
                 <div class="swiper-wrapper">
-                    @foreach($projects as $project)
+                    @foreach($project->category->projects as $project)
                         <div class="swiper-slide bg-black border-1 border-primary">
                             @include('frontend.components.single_project_card')
                         </div>
@@ -528,8 +505,8 @@
 
 
         var mySwiper = new Swiper(".gallery-swipper", {
-            spaceBetween: 1,
-            slidesPerView: 4,
+            spaceBetween: 3,
+            slidesPerView: 3,
             centeredSlides: true,
             roundLengths: true,
             autoplay:true,

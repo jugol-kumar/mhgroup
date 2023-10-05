@@ -3,7 +3,7 @@
 
 
 <div id="ourstory" class="about-section" style="background-image: url({{ asset('assets/frontend') }}/img/banners/banner-1.avif); height: 50vh; background-size: cover; background-position: center;">
-    <div class="text-white"
+    <div class="text-white page-title"
          data-appear-animation="fadeInLeftShorterPlus"
          data-appear-animation-delay="300">
         <h1 data-appear-animation="fadeInLeftShorterPlus"
@@ -47,7 +47,7 @@
             <div class="col-md-4">
                 <div class="card">
                     <div class="card-body">
-                        <img class="w-100 h-100" style="object-fit:cover" src="https://images.sampleforms.com/wp-content/uploads/2017/04/18-Employee-Clearance-Form-samples1.jpg" alt="">
+                        <img class="w-100 h-100" style="object-fit:cover" src="/storage/{{ get_setting('profile') }}" alt="">
                     </div>
                 </div>
             </div>

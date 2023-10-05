@@ -61,11 +61,11 @@ $(function(){
             spaceBetween: 0,
 
             centeredSlides: true,
-            /*autoplay: {
+            autoplay: {
                 delay: 7000,
                 disableOnInteraction: false,
                 stopOnLastSlide: false
-            },*/
+            },
             autoplay: false,
             keyboard: {
                 enabled: true,

@@ -280,7 +280,6 @@
                                                                     <div class="col-md-6">
                                                                         <div class="row">
                                                                             data repeat
-
                                                                         </div>
                                                                     </div>
 

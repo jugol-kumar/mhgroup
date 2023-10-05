@@ -76,22 +76,23 @@
     .upload-options label span:hover i.material-icons {
         color: lightgray;
     }
-
     .js--image-preview {
         height: 225px;
         width: 100%;
         position: relative;
         overflow: hidden;
-        background-image: url({{ isset($bg_image) ? '/storage/'.$bg_image : 'https://i0.wp.com/theperfectroundgolf.com/wp-content/uploads/2022/04/placeholder.png?w=1200&ssl=1'}});
         background-color: white;
         background-position: center center;
         background-repeat: no-repeat;
         background-size: cover;
+        background-image: url({{ isset($bg_image) ? '/storage/'.$bg_image : 'https://i0.wp.com/theperfectroundgolf.com/wp-content/uploads/2022/04/placeholder.png?w=1200&ssl=1'}});
+
     }
     .js--image-preview::after {
         content: "";
         font-family: 'Material Icons';
         position: relative;
+    }
 
 </style>
 

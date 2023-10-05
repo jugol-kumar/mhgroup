@@ -37,13 +37,14 @@ class HomeController extends Controller
 
     public function project(){
         $category = Category::with('projects')->get();
+
         return view('frontend.pages.project', compact('category'));
     }
 
     public function singleProject($slug = null, $id){
-        $project = Project::with('category')->where('id', $id)->first();
-        $projects = Project::all();
-        return view('frontend.pages.single_project', compact('project', 'projects'));
+        $project = Project::with('featuredImages','lifestyleImages','planImages','category', 'category.projects')->where('id', $id)->first();
+
+        return view('frontend.pages.single_project', compact('project', 'project'));
     }
 
 

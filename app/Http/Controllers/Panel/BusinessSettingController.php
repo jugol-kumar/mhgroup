@@ -47,6 +47,10 @@ class BusinessSettingController extends Controller
                 if ($type == 'favicon' && $request->hasFile('favicon')) {
                     $business_settings->value = store_file($request->file('favicon'));
                 }
+
+                if ($type == 'profile' && $request->hasFile('profile')) {
+                    $business_settings->value = store_file($request->file('profile'));
+                }
                 $business_settings->save();
             }
             else{
@@ -66,6 +70,9 @@ class BusinessSettingController extends Controller
 
                 if ($type == 'favicon' && $request->hasFile('favicon')) {
                     $business_settings->value = store_file($request->file('favicon'));
+                }
+                if ($type == 'profile' && $request->hasFile('profile')) {
+                    $business_settings->value = store_file($request->file('profile'));
                 }
                 $business_settings->save();
             }

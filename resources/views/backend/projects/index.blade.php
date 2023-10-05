@@ -28,9 +28,12 @@
                                             <td>{{ $project->title }}</td>
                                             <td>{{ $project->category?->title }}</td>
                                             <td>
-                                                <img src="{{ '/storage/'.$project->image }}" width="50" alt="">
+                                                <img src="{{ '/storage/'.$project->thumbnail }}" width="50" alt="">
                                             </td>
                                             <td>
+                                                <a class="text-primary" href="{{ route('admin.project.show', $project->id) }}">
+                                                    <i data-feather="eye"></i>
+                                                </a>
                                                 <a class="text-warning" href="{{ route('admin.project.edit', $project->id) }}">
                                                     <i data-feather="edit"></i>
                                                 </a>

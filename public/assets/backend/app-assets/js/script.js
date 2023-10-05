@@ -1,4 +1,4 @@
-function deleteData(id) {
+function deleteData(id, option=null) {
     Swal.fire({
         title: 'Are you sure?',
         text: "You won't be able to revert this!",
@@ -9,7 +9,7 @@ function deleteData(id) {
         confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
         if (result.isConfirmed) {
-            document.getElementById('delete-form-' + id).submit();
+            document.getElementById(`delete-form-${option ?? null}` + id).submit();
         }
     })
 }

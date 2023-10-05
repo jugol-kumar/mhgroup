@@ -18,4 +18,17 @@ class Project extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function featuredImages(){
+        return $this->hasMany(ProjectFeatures::class);
+    }
+
+    public function lifestyleImages(){
+        return $this->hasMany(ProjectLifestyle::class);
+    }
+
+    public function planImages(){
+        return $this->hasMany(ProjectPlan::class);
+    }
+
+
 }
