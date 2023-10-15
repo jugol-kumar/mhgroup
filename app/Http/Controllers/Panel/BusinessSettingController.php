@@ -51,6 +51,9 @@ class BusinessSettingController extends Controller
                 if ($type == 'profile' && $request->hasFile('profile')) {
                     $business_settings->value = store_file($request->file('profile'));
                 }
+                if ($type == 'concern_image' && $request->hasFile('concern_image')) {
+                    $business_settings->value = store_file($request->file('concern_image'));
+                }
                 $business_settings->save();
             }
             else{
@@ -73,6 +76,9 @@ class BusinessSettingController extends Controller
                 }
                 if ($type == 'profile' && $request->hasFile('profile')) {
                     $business_settings->value = store_file($request->file('profile'));
+                }
+                if ($type == 'concern_image' && $request->hasFile('concern_image')) {
+                    $business_settings->value = store_file($request->file('concern_image'));
                 }
                 $business_settings->save();
             }

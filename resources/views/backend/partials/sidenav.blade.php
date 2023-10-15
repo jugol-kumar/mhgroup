@@ -148,9 +148,9 @@
                         </a>
                     </li>
                     <li>
-                        <a class="d-flex align-items-center" href="{{ route('admin.gallery.index') }}">
+                        <a class="d-flex align-items-center" href="{{ route('admin.concern') }}">
                             <i data-feather="circle"></i>
-                            <span class="menu-item text-truncate" data-i18n="Edit">Team Gallery</span>
+                            <span class="menu-item text-truncate" data-i18n="Edit">Our Concern</span>
                         </a>
                     </li>
                 </ul>

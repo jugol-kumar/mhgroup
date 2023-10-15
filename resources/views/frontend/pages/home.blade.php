@@ -4,8 +4,8 @@
 {{--    @include('frontend.components.carosel',['sliders' => $sliders])--}}
     @include('frontend.components.bootstrap_carosel', ['sliders' => $sliders])
     @include('frontend.components.home_content')
-    @include('frontend.components.home_video')
     @include('frontend.components.bg_video')
+    @include('frontend.components.home_video')
     @include('frontend.components.expertises')
     @include('frontend.components.map')
 {{--    youtube videows --}}

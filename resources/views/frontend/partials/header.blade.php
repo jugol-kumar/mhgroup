@@ -60,6 +60,11 @@
                                             </a>
                                         </li>
                                         <li>
+                                            <a class="nav-link {{ Route::is('ourConcern') ? 'active' : '' }}" href="{{ route('ourConcern') }}">
+                                                Our Concern
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a class="nav-link {{ Route::is('contact') ? 'active' : '' }}" href="{{ route('contact') }}">
                                                 Contact Us
                                             </a>

@@ -9,7 +9,11 @@ function deleteData(id, option=null) {
         confirmButtonText: 'Yes, delete it!'
     }).then((result) => {
         if (result.isConfirmed) {
-            document.getElementById(`delete-form-${option ?? null}` + id).submit();
+            if(option){
+                document.getElementById(`delete-form-${option}` + id).submit();
+            }else{
+                document.getElementById("delete-form-" + id).submit();
+            }
         }
     })
 }

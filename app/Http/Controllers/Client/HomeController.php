@@ -74,4 +74,8 @@ class HomeController extends Controller
         return view('frontend.pages.show_news_events', compact('post'));
     }
 
+    public function concern(){
+        return view('frontend.pages.our_concern');
+    }
+
 }

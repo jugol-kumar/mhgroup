@@ -4,9 +4,11 @@
             <source src="{{ asset('assets/frontend/video/video.mp4') }}" type="video/mp4">
         </video>
 
+        @if(get_setting('home_video_content'))
         <div class="banner-title">
             <h1> {{ get_setting('home_video_content') ?? "You can place a title over the video like this..." }}</h1>
         </div>
+        @endif
 
     </div>
 </div>
