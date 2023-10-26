@@ -99,7 +99,7 @@
                                 <input type="text" name="video_link" class="form-control" placeholder="youtube video link">
                             </div>
 
-                            <button class="btn btn-primary mt-1" type="submit">Save Employee</button>
+                            <button class="btn btn-primary mt-1" type="submit">Save Item</button>
                         </form>
                     </div>
                 </div>

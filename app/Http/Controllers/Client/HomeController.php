@@ -8,6 +8,7 @@ use App\Models\Employee;
 use App\Models\Gallery;
 use App\Models\HomeArea;
 use App\Models\HomeItem;
+use App\Models\OurConcern;
 use App\Models\Post;
 use App\Models\Project;
 use App\Models\Slider;
@@ -74,8 +75,11 @@ class HomeController extends Controller
         return view('frontend.pages.show_news_events', compact('post'));
     }
 
-    public function concern(){
-        return view('frontend.pages.our_concern');
+    public function concern($slug){
+
+        $concern = OurConcern::where('slug', $slug)->first();
+
+        return view('frontend.pages.our_concern', compact('concern'));
     }
 
 }

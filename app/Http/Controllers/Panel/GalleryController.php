@@ -72,7 +72,7 @@ class GalleryController extends Controller
      */
     public function edit(Gallery $gallery)
     {
-        //
+        return view('backend.gallery.edit', compact('gallery'));
     }
 
     /**
@@ -80,7 +80,19 @@ class GalleryController extends Controller
      */
     public function update(Request $request, Gallery $gallery)
     {
-        //
+        if($request->hasFile('image')){
+            Storage::disk('public')->delete($gallery->thumb);
+            $name = 'HomeItem'.uniqid().'.'.$request->file('image')->getClientOriginalExtension();
+            $gallery->thumb = store_file($request->file('image'), 'public', $name);
+        }
+
+        $gallery->update([
+            'title' => $request->title,
+            'video' => $request->input('video_link')
+        ]);
+
+        toast('Update Success Gallery Item...', 'success');
+        return back();
     }
 
     /**

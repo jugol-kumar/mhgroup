@@ -216,7 +216,7 @@
 
             <div class="d-flex gap-1 mt-1">
                 <div class="single-feture-box wbg w-100 d-flex align-items-center justify-content-center" style="height:15rem">
-                    <a class="w-100 h-100" href="javascript:void(0)">
+                    <a class="w-100 h-100" href="#floorPlans">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 48 48" height="48" width="48">
                             <g id="workflow--workflow-arrow-nodes-circle-diamond-direction-plan">
                                 <path id="Union" fill="#000000" fill-rule="evenodd" d="m11 1.88 1.06 1.06 7 7 1.06 1.06 -1.06 1.06L13 18.12v4.122h4.096v2.44L11.08 30.694h7.2v1.292l0 4.108h4.694V32h2.44l6.094 6.096 -6.096 6.096h-2.438v-4.096H18.28l0 3.866v1.292H3.72l0 -1.292 0 -11.974 0 -1.292h7.2L4.904 24.68l0 -2.438H9l0 -4.12 -6.06 -6.06 -1.06 -1.06 1.06 -1.062 7 -7 1.06 -1.06Zm17.66 11.12h3.376a7.288 7.288 0 0 0 14.294 -2 7.286 7.286 0 0 0 -14.294 -2H28.66V4.904l-2.44 0L20.126 11l6.096 6.096h2.438V13ZM31.756 38a7.286 7.286 0 1 1 14.572 0 7.286 7.286 0 0 1 -14.572 0Z" clip-rule="evenodd" stroke-width="2"></path>
@@ -236,7 +236,7 @@
                     </a>
                 </div>
                 <div class="single-feture-box wbg w-100 d-flex align-items-center justify-content-center" style="height:15rem">
-                    <a class="w-100 h-100" href="javascript:void(0)">
+                    <a class="w-100 h-100" href="#mapLocation">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 48 48" height="48" width="48">
                             <g id="dial-pad-finger-2--hand-lock-login-padlock-password-textbox-touch-type">
                                 <path id="Union" fill="#000000" fill-rule="evenodd" d="M22 4H2v12h20V4Zm0 16H2v12h20v-12Zm23 11V46H26l-6 -7 6 -6v-18h3a4 4 0 0 1 4 4V28l12 3ZM26 4h20v12h-10.674A7 7 0 0 0 29 12H26V4Z" clip-rule="evenodd" stroke-width="2"></path>
@@ -246,7 +246,7 @@
                     </a>
                 </div>
                 <div class="single-feture-box bbg w-100 d-flex align-items-center justify-content-center" style="height:15rem">
-                    <a class="w-100 h-100" href="javascript:void(0)">
+                    <a class="w-100 h-100" href="#asLike">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 48 48" height="48" width="48">
                             <g id="map-location--map-location-pin-navigation-gps-travel">
                                 <path id="Subtract" fill="#ffffff" fill-rule="evenodd" d="M30.428 40.872a32.86 32.86 0 0 0 2.882 2.85c0.72 0.63 1.474 1.206 2.24 1.778 0.762 -0.572 1.518 -1.148 2.236 -1.778 0.784 -0.684 1.832 -1.666 2.884 -2.85 2.034 -2.29 4.38 -5.654 4.38 -9.246a9.5 9.5 0 1 0 -19 0c0 3.592 2.344 6.956 4.378 9.246Zm3.12 -11.246v4h4v-4h-4Z" clip-rule="evenodd" stroke-width="2"></path>
@@ -259,7 +259,6 @@
             </div>
         </div>
     </div>
-
 
     <div class="bg-white py-5" id="atAGlance">
         <div class="container-lg">
@@ -453,7 +452,7 @@
         </div>
     </div>
 
-    <div class="bg-black">
+    <div class="bg-black" id="floorPlans">
         <div class="container py-5">
             <div class="mb-5">
                 <h2 class="text-uppercase text-white">FLOOR PLANS</h2>
@@ -469,7 +468,8 @@
                     @endforeach
                 </div>
             </div>
-            <div class="mt-5 map-location">
+
+            <div class="mt-5 map-location" id="mapLocation">
                 <h2 class="text-uppercase text-white">Map Location</h2>
                 {!! $project?->map_location !!}
             </div>
@@ -477,7 +477,7 @@
     </div>
 
 
-    <div class="similer-projects-bg py-5">
+    <div class="similer-projects-bg py-5" id="asLike">
         <div class="container overflow-hidden">
             <h2 class="text-uppercase">Also Your Like</h2>
             <div class="swiper swipper-carousel">
@@ -501,7 +501,7 @@
 
     <script>
 
-        window.scrollTo({ top: 3900, behavior: 'smooth' });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
 
 
         var mySwiper = new Swiper(".gallery-swipper", {

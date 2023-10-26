@@ -33,9 +33,11 @@ class HomeItemController extends Controller
     {
         $data = $request->validate([
             'title' => 'required',
+            'link' => 'nullable',
             'itemImage' => 'required'
         ]);
         $data['image'] = store_file($request->file('itemImage'));
+        $data['link'] = $request->input('link');
         HomeItem::create($data);
         toast('Home Item Created Successfully done...', 'success');
         return back();
@@ -65,17 +67,16 @@ class HomeItemController extends Controller
     {
         $homeItem = HomeItem::findOrFail($id);
 
-
         if($request->hasFile('itemImage')){
             Storage::disk('public')->delete($homeItem->image);
             $name = 'HomeItem'.uniqid().'.'.$request->file('itemImage')->getClientOriginalExtension();
             $homeItem->image = store_file($request->file('itemImage'), 'public', $name);
         }
         $homeItem->title = $request->title;
+        $homeItem->link = $request->link;
         $homeItem->save();
         toast('Home Item Update Successfully done...', 'success');
         return back();
-
     }
 
     /**

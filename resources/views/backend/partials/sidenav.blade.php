@@ -123,12 +123,14 @@
                 </a>
             </li>
 
+{{--
             <li class=" nav-item">
                 <a class="d-flex align-items-center" href="{{ route('admin.message') }}">
                     <i data-feather="message-square"></i>
                     <span class="menu-title text-truncate" data-i18n="Setting">Client Message</span>
                 </a>
             </li>
+--}}
 
 
             <li class=" nav-item"><a class="d-flex align-items-center" href="#">
@@ -148,7 +150,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="d-flex align-items-center" href="{{ route('admin.concern') }}">
+                        <a class="d-flex align-items-center" href="{{ route('admin.concern.index') }}">
                             <i data-feather="circle"></i>
                             <span class="menu-item text-truncate" data-i18n="Edit">Our Concern</span>
                         </a>

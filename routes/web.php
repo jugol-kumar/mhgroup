@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Client\HomeController;
+use App\Http\Controllers\OurConcernController;
 use App\Http\Controllers\Panel\BusinessSettingController;
 use App\Http\Controllers\Panel\CategoryController;
 use App\Http\Controllers\Panel\DashboardController;
@@ -38,7 +39,7 @@ Route::get('/news-and-events', [HomeController::class, 'newsEvents'])->name('new
 Route::get('/news-and-events/{slug}/{id}', [HomeController::class, 'showEvents'])->name('showEvent');
 Route::get('/contact-us', [HomeController::class, 'contact'])->name('contact');
 Route::post('messages-create', [MessageController::class, 'messageStore'])->name('message.create');
-Route::get('/our-concern', [HomeController::class, 'concern'])->name('ourConcern');
+Route::get('/our-concern/{slug}', [HomeController::class, 'concern'])->name('ourConcern');
 Route::prefix('panel')->name('admin.')->middleware('guest')->group(function (){
     Route::get('login', [LoginController::class, 'showLoginForm'])->name('showLoginForm');
     Route::post('login', [LoginController::class, 'login'])->name('login');
@@ -82,10 +83,7 @@ Route::prefix('panel')->name('admin.')->middleware('auth')->group(function (){
 
    Route::post('update-profile', [BusinessSettingController::class, 'updateProfile'])->name('update_profile');
 
-   Route::get('concern', function (){
-       return view('backend.conern.index');
-   })->name('concern');
-
+   Route::resource('concern', OurConcernController::class);
 
 });
 

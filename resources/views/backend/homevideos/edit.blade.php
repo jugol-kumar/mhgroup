@@ -6,8 +6,7 @@
             <div class="col-md-8 mx-auto">
                 <div class="card">
                     <div class="card-body">
-                        <h1 class="text-center mb-1 text-black" id="shareProjectTitle">Add Home Item</h1>
-                        <p class="text-center">Added interactive 4 items image and title for home page.</p>
+                        <h1 class="text-center mb-1 text-black" id="shareProjectTitle">Home Videos</h1>
                         @include('backend.components.validationerrors')
                         <form action="{{ route('admin.home-videos.update', $video->id) }}" method="post" enctype="multipart/form-data">
                             @csrf
@@ -42,7 +41,15 @@
             </div>
         </div>
     </div>
-
-
-
 @endsection
+@push('js')
+    <script>
+        function setVideo(event){
+            if (event.value === 'video'){
+                $("#videoLink").removeClass('d-none');
+            }else{
+                $("#videoLink").addClass('d-none');
+            }
+        }
+    </script>
+@endpush

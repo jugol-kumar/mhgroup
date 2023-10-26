@@ -2,32 +2,40 @@
     <div class="container mt-10r">
         <div class="row align-items-center justify-content-center row-border position-relative">
             <div class="col-5 p-0" data-aos="fade-down" data-aos-duration="1000">
-                <div class="d-flex text-white align-items-baseline">
-                    <i data-feather="chevron-right"></i>
-                    <p class="text-white" data-aos="fade-up" data-aos-duration="1000">{{  $item[0]?->title ?? 'Item - 0' }}</p>
-                </div>
-                <img src="{{ $items[0]?->image ? '/storage/'.$items[0]?->image : asset('assets/frontend/images/building-image2.jpg') }}" class="image-1" style="width:852px; height: 325px;" alt="">
+                <a href="{{ $items[0]?->link }}">
+                    <div class="d-flex text-white align-items-baseline">
+                        <i data-feather="chevron-right"></i>
+                        <p class="text-white fs-2" data-aos="fade-up" data-aos-duration="1000">{{  $items[0]?->title ?? 'Item - 0' }}</p>
+                    </div>
+                    <img src="{{ $items[0]?->image ? '/storage/'.$items[0]?->image : asset('assets/frontend/images/building-image2.jpg') }}" class="image-1" style="width:852px; height: 325px;" alt="">
+                </a>
             </div>
             <div class="col-5 p-0" data-aos="fade-down-left" data-aos-duration="1000">
-                <div class="d-flex text-white ms-3 align-items-baseline">
-                    <p class="text-white" data-aos="fade-up" data-aos-duration="1000">{{ $item[1]?->title ?? 'Item - 1' }}</p>
-                    <i data-feather="chevron-left"></i>
-                </div>
-                <img src="{{ $items[1]?->image ? '/storage/'.$items[1]?->image :  asset('assets/frontend/images/building%20image1.jpg') }}" class="image-2" style="width:852px; height: 325px;"  alt="">
+                <a href="{{ $items[1]?->link }}">
+                    <div class="d-flex text-white ms-3 align-items-baseline">
+                        <p class="text-white fs-2" data-aos="fade-up" data-aos-duration="1000">{{ $items[1]?->title ?? 'Item - 1' }}</p>
+                        <i data-feather="chevron-left"></i>
+                    </div>
+                    <img src="{{ $items[1]?->image ? '/storage/'.$items[1]?->image :  asset('assets/frontend/images/building%20image1.jpg') }}" class="image-2" style="width:852px; height: 325px;"  alt="">
+                </a>
             </div>
             <div class="col-5 p-0" data-aos="fade-up-right" data-aos-duration="1000">
-                <img src="{{ $items[2]?->image ? '/storage/'.$items[2]?->image :  asset('assets/frontend/images/building%20image1.jpg') }}" class="image-3"  style="width:852px; height: 325px;" alt="">
-                <div class="d-flex text-white ms-3 mt-3 align-items-baseline">
-                    <i data-feather="chevron-right"></i>
-                    <p class="text-white" data-aos="fade-up" data-aos-duration="1000">{{ $items[2]?->title ?? 'Item - 2' }}</p>
-                </div>
+                <a href="{{ $items[2]?->link }}">
+                    <img src="{{ $items[2]?->image ? '/storage/'.$items[2]?->image :  asset('assets/frontend/images/building%20image1.jpg') }}" class="image-3"  style="width:852px; height: 325px;" alt="">
+                    <div class="d-flex text-white ms-3 mt-3 align-items-baseline">
+                        <i data-feather="chevron-right"></i>
+                        <p class="text-white fs-2" data-aos="fade-up" data-aos-duration="1000">{{ $items[2]?->title ?? 'Item - 2' }}</p>
+                    </div>
+                </a>
             </div>
             <div class="col-5 p-0" data-aos="fade-up-left" data-aos-duration="1000">
-                <img src="{{ $items[3]?->image ? '/storage/'.$items[3]?->image :  asset('assets/frontend/images/building-image2.jpg') }}" class="image-4" style="width:852px; height: 325px;" alt="">
-                <div class="d-flex text-white ms-3 mt-3 align-items-baseline">
-                    <p class="text-white" data-aos="fade-up" data-aos-duration="1000">{{ $items[3]?->title ?? 'Item - 4' }}</p>
-                    <i data-feather="chevron-left"></i>
-                </div>
+                <a href="{{ $items[3]?->link }}">
+                    <img src="{{ $items[3]?->image ? '/storage/'.$items[3]?->image :  asset('assets/frontend/images/building-image2.jpg') }}" class="image-4" style="width:852px; height: 325px;" alt="">
+                    <div class="d-flex text-white ms-3 mt-3 align-items-baseline">
+                        <p class="text-white fs-2" data-aos="fade-up" data-aos-duration="1000">{{ $items[3]?->title ?? 'Item - 4' }}</p>
+                        <i data-feather="chevron-left"></i>
+                    </div>
+                </a>
             </div>
         </div>
     </div>

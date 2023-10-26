@@ -59,10 +59,19 @@
                                                 News & Events
                                             </a>
                                         </li>
-                                        <li>
-                                            <a class="nav-link {{ Route::is('ourConcern') ? 'active' : '' }}" href="{{ route('ourConcern') }}">
-                                                Our Concern
+                                        <li class="dropdown dropdown-primary">
+                                            <a class="dropdown-toggle nav-link {{ Route::is('ourConcern') ? 'active' : '' }}" href="#">
+                                                Our Concerns
                                             </a>
+                                            <ul class="dropdown-menu {{ isset($trans) && $trans == true ? '' : 'whitemenu'}}">
+                                                @forelse($concerns as $concern)
+                                                    <li>
+                                                        <a class="dropdown-item" href="{{ route('ourConcern', $concern->slug) }}">{{ $concern->short_name }}</a>
+                                                    </li>
+                                                @empty
+                                                    <p>No have concerns available</p>
+                                                @endforelse
+                                            </ul>
                                         </li>
                                         <li>
                                             <a class="nav-link {{ Route::is('contact') ? 'active' : '' }}" href="{{ route('contact') }}">

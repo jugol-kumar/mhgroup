@@ -34,10 +34,14 @@
             background: white;
             padding: 10px;
         }
+        .main-content *{
+            margin:0 !important;
+            padding:0 !important;
+        }
     </style>
 @endpush
 @section('content')
-    <div id="ourstory" class="about-section" style="background-image: url({{ asset('assets/frontend') }}/img/banners/banner-1.avif); height: 50vh; background-size: cover; background-position: center;">
+    <div id="ourstory" class="about-section" style="z-index: 10; background-image: url({{ asset('assets/frontend') }}/img/banners/banner-1.avif); height: 50vh; background-size: cover; background-position: center;">
         <div class="text-white"
              data-appear-animation="fadeInLeftShorterPlus"
              data-appear-animation-delay="300">
@@ -50,22 +54,20 @@
     <div class="container-lg">
         <div class="row">
             <div class="col-md-6">
-                <h1 class="fw-normal display-3 mt-5">{{ json_decode(get_setting('concern_message'))?->section_title ?? 'Hm Group Company'}}</h1>
+                <h1 class="fw-normal display-3 mt-5">{{ $concern?->concern_name }}</h1>
+                <a href="{{ $concern?->link ?? '#'}}" class="btn btn-lg btn-primary text-uppercase">{{ $concern?->short_name }}</a>
             </div>
             <div class="col-md-6">
                 <div class="w-100 h-100 con-image">
-                    <img class="w-100 h-100" src="/storage/{{ get_setting('concern_image') }}" alt="">
+                    <img class="w-100 h-100" src="/storage/{{ $concern?->image }}" alt="">
                 </div>
             </div>
         </div>
         <div class="row mt-5 my-5">
             <div class="col-md-9 position-relative main-con-content">
                 <div class="card">
-                    <div class="card-body">
-                        <h2 class="card-title">Overview</h2>
-                        <p>
-                            {{ json_decode(get_setting('concern_message'))?->section_description }}
-                        </p>
+                    <div class="card-body main-content mt-5">
+                        {!! $concern?->about !!}
                     </div>
                 </div>
             </div>
@@ -76,17 +78,16 @@
                         <div class="">
                             <div>
                                 <p class="fw-semibold m-0">Office Address</p>
-                                <p>{{ get_setting('address') }}</p>
+                                <p>{{ $concern?->address }}</p>
                             </div>
                             <div>
                                 <p class="fw-semibold m-0">Phone Number</p>
-                                <p class="m-0">{{ get_setting('phone') }}</p>
-                                <p>{{ get_setting('phone_second') }}</p>
+                                <p class="m-0">{{ $concern?->phone }}</p>
                             </div>
 
                             <div>
                                 <p class="fw-semibold m-0">Email</p>
-                                <p>{{ get_setting('email') }}</p>
+                                <p>{{ $concern?->email }}</p>
                             </div>
                         </div>
                     </div>

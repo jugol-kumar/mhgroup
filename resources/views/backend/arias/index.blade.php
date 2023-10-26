@@ -1,9 +1,9 @@
 @extends('backend.app')
 @push('css')
     <style>
-        /*.ck-editor__editable_inline{*/
-        /*    min-height: 250px !important;*/
-        /*}*/
+        .ql-container{
+            height:300px !important;
+        }
     </style>
 @endpush
 @section('content')
@@ -99,10 +99,14 @@
                             <textarea name="short_content" class="form-control" placeholder="e.g write 100 to 150 word details" rows="7">{{ old('short_content')  }}</textarea>
                         </div>
 
-                        <div class="mt-2">
-                            <label class="form-label fw-bolder font-size font-small-4 mb-50" for="addMemberSelect">Content</label>
-                            <textarea name="content" id="editor" cols="30" placeholder="e.g add your content" rows="10">{{ old('content') }}</textarea>
+                        <div class="mt-1">
+                            <label class="form-label fw-bolder font-size font-small-4 mb-50" for="full-container">Post Details</label>
+                            <div id="full-container">
+                                <div class="editor"></div>
+                            </div>
+                            <input type="hidden" id="post_details" name="content">
                         </div>
+
 
                         <button class="btn btn-primary mt-1" type="submit">Save Item</button>
                     </form>
