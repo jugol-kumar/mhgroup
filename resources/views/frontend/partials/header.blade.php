@@ -38,7 +38,7 @@
                                                 <li><a class="dropdown-item" href="{{ route('about') }}#aspiration&vision">Aspiration & Vision </a></li>
                                                 <li><a class="dropdown-item" href="{{ route('about') }}#management">Management</a></li>
                                                 <li><a class="dropdown-item" href="{{ route('chairmanMessage') }}">Chairman Message</a></li>
-                                                <li><a class="dropdown-item" href="{{ route('about') }}#strenth">Strenth</a></li>
+{{--                                                <li><a class="dropdown-item" href="{{ route('about') }}#strenth">Strength</a></li>--}}
                                                 <li><a class="dropdown-item" href="{{ route('about') }}#qpolicy">Quality Policy</a></li>
                                             </ul>
                                         </li>

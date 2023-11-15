@@ -106,7 +106,8 @@
     </div>
 
 
-
+{{--
+    @if($galleries->count() > 0)
     <div class="our-gallery">
         <h1 class="display-2 shadow-text">Our Team</h1>
         <div class="row">
@@ -117,6 +118,7 @@
             @endforeach
         </div>
     </div>
+    @endif--}}
 
 
 {{--    <div class="about-section" style="background-image: url({{ asset('assets/frontend') }}/img/banners/banner-1.avif); background-size: cover; background-position: center;">

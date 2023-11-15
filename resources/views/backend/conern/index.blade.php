@@ -47,7 +47,7 @@
                                             </div>
                                         </td>
                                         <td>
-                                            <a class="text-warning" href="{{ route('admin.gallery.edit', $con->id) }}">
+                                            <a class="text-warning" href="{{ route('admin.concern.edit', $con->id) }}">
                                                 <i data-feather="edit"></i>
                                             </a>
                                             <a class="text-danger" href="javascript:void(0)"
@@ -117,7 +117,7 @@
                                        id="address"
                                        class="form-control"
                                        name="address"
-                                       placeholder="Link of your concern"
+                                       placeholder="Concern Address"
                                 />
                             </div>
                             <div class="col-12 mb-1">

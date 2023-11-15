@@ -2,9 +2,10 @@
 @if($homeAreas->count())
 <section class="bg-black custom-section-padding">
     <div class="container">
+
         <div class="row mb-4">
             <div class="col">
-                <h2 class="font-weight-bold text-white mb-3">- লেক আইল্যান্ড - ঢাকা</h2>
+                <h2 class="font-weight-bold text-white mb-3 text-capitalize">- location benefits</h2>
             </div>
         </div>
         <div class="row">

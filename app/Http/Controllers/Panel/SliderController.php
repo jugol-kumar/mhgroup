@@ -33,8 +33,8 @@ class SliderController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-           'title' => 'required',
-            'descriptions' => 'required',
+            'title' => 'nullable',
+            'descriptions' => 'nullable',
             'bg_image' => 'required',
             'button_name' => 'nullable'
         ]);

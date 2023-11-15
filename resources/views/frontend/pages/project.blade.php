@@ -6,7 +6,7 @@
              data-appear-animation-delay="300">
                 <h1 data-appear-animation="fadeInLeftShorterPlus"
                     data-appear-animation-delay="500"
-                    class="display-3 text-capitalize shadow-text shadow-text">Proejcts</h1>
+                    class="display-3 text-capitalize shadow-text shadow-text">Project</h1>
         </div>
     </div>
 

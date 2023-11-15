@@ -67,7 +67,7 @@
                                                         data-bs-target="#v-pills-messages"
                                                         type="button" role="tab"
                                                         aria-controls="v-pills-messages"
-                                                        aria-selected="false">Apprience</button>
+                                                        aria-selected="false">Appearance</button>
 
 {{--
                                                 <button class="nav-link"
@@ -224,7 +224,7 @@
 
                                                 <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
                                                     <div class="card">
-                                                        <h2>Appearances Setup</h2>
+                                                        <h2>Appearance Setup</h2>
                                                         <div class="card-body">
                                                             <form class="form form-vertical" action="{{ route('admin.settings') }}" method="post" enctype="multipart/form-data">
                                                                 @csrf

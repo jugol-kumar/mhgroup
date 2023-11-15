@@ -93,7 +93,7 @@
             <li class=" nav-item">
                 <a class="d-flex align-items-center" href="{{ route('admin.home-arias.index') }}">
                     <i data-feather="map-pin"></i>
-                    <span class="menu-title text-truncate" data-i18n="Setting">Arias</span>
+                    <span class="menu-title text-truncate" data-i18n="Setting">Areas</span>
                 </a>
             </li>
 
@@ -123,14 +123,12 @@
                 </a>
             </li>
 
-{{--
             <li class=" nav-item">
                 <a class="d-flex align-items-center" href="{{ route('admin.message') }}">
                     <i data-feather="message-square"></i>
                     <span class="menu-title text-truncate" data-i18n="Setting">Client Message</span>
                 </a>
             </li>
---}}
 
 
             <li class=" nav-item"><a class="d-flex align-items-center" href="#">
@@ -140,7 +138,7 @@
                     <li>
                         <a class="d-flex align-items-center" href="{{ route('admin.pagesSection') }}">
                             <i data-feather="circle"></i>
-                            <span class="menu-item text-truncate" data-i18n="List">Abut Page Content</span>
+                            <span class="menu-item text-truncate" data-i18n="List">About Page Content</span>
                         </a>
                     </li>
                     <li>

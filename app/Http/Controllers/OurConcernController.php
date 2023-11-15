@@ -65,9 +65,10 @@ class OurConcernController extends Controller
      * Show the form for editing the specified resource.
      * @param OurConcern $ourConcern
      */
-    public function edit(OurConcern $ourConcern)
+    public function edit($id)
     {
-        //
+        $concern = OurConcern::findOrFail($id);
+        return view('backend.conern.edit', compact('concern'));
     }
 
     /**
@@ -75,9 +76,29 @@ class OurConcernController extends Controller
      * @param Request $request
      * @param OurConcern $ourConcern
      */
-    public function update(Request $request, OurConcern $ourConcern)
+    public function update(Request $request, $id)
     {
-        //
+
+        $data = $request->validate([
+            'concern_name' => 'required',
+            'short_name' => 'required',
+            'link' => 'sometimes',
+            'address' => 'required',
+            'phone' => 'required',
+            'email' => 'email|required',
+            'about' => 'nullable',
+            'concern_image' => 'sometimes'
+        ]);
+        $concern = OurConcern::findOrFail($id);
+
+        if ($request->hasFile('concern_image')){
+            Storage::disk('public')->delete('/concerns/'.$concern->image);
+            $data['image'] = store_file($request->file('concern_image'), 'concerns');
+        }
+        $data['slug'] = Str::slug($request->input('concern_name'));
+        $concern->update($data);
+        toast('Concern Update Successfully Done...', 'success');
+        return back();
     }
 
     /**

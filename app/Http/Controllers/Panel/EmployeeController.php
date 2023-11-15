@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Panel;
 use App\Http\Controllers\Controller;
 use App\Models\Employee;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use function Symfony\Component\Translation\t;
 
 class EmployeeController extends Controller
@@ -34,8 +35,8 @@ class EmployeeController extends Controller
     {
         $data = $request->validate([
             'name' => 'required',
-            'designation' => 'required',
-            'descriptions' => 'required|min:300',
+            'designation' => 'nullable',
+            'descriptions' => 'nullable',
             'type' => 'required'
         ]);
         $data['about'] = $request->descriptions;
@@ -57,10 +58,12 @@ class EmployeeController extends Controller
 
     /**
      * Show the form for editing the specified resource.
+     * @param Employee $employee
+     * @return Employee|\Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Foundation\Application
      */
     public function edit(Employee $employee)
     {
-        //
+        return view('backend.employees.edit', compact('employee'));
     }
 
     /**
@@ -68,14 +71,36 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, Employee $employee)
     {
-        //
+        $data = $request->validate([
+            'name' => 'required',
+            'designation' => 'nullable',
+            'descriptions' => 'nullable',
+            'type' => 'required'
+        ]);
+        $data['about'] = $request->descriptions;
+
+        if ($request->hasFile('profile')){
+            Storage::disk('public')->delete('/employees/'.$employee->profile);
+            $data['image'] = store_file($request->file('profile'), 'employees');
+        }
+
+        $employee->update($data);
+        toast('Employee Update Successfully Done...', 'success');
+        return back();
     }
 
     /**
      * Remove the specified resource from storage.
+     * @param Employee $employee
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Employee $employee)
     {
-        //
+        if ($employee->image) {
+            Storage::disk('public')->delete($employee->image);
+            $employee->delete();
+            toast('Employee Deleted Successfully Done...', 'success');
+            return back();
+        }
     }
 }

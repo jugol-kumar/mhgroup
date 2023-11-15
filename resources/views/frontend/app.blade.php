@@ -1,12 +1,12 @@
 @include('frontend.partials.head')
 <div class="body">
-    <div id="preeloader" class="d-flex align-items-center justify-content-center">
+{{--    <div id="preeloader" class="d-flex align-items-center justify-content-center">
         <div class="position-relative">
             <img alt="{{ config("app.name") }}" src="{{ asset('assets/frontend') }}/images/ringLoader.svg">
             <img alt="{{ config("app.name") }}"
                  class="loader-logo" src="{{ get_setting('header_logo') ? '/storage/'.get_setting('header_logo') : asset('assets/frontend/img/logo.png') }}">
         </div>
-    </div>
+    </div>--}}
 
   @include('frontend.partials.header', ['trans' => get_setting('apprience') == 'true' ? true : false ])
 {{--    @include('frontend.partials.bootstrap_nav')--}}

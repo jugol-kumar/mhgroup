@@ -19,8 +19,8 @@
                                         <th>#_Id</th>
                                         <th>Image</th>
                                         <th>name</th>
-                                        <th>Email</th>
-                                        <th>Message</th>
+                                        <th>About</th>
+                                        <th>Type</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
@@ -46,16 +46,16 @@
                                                     <i data-feather="more-vertical"></i>
                                                 </button>
                                                 <div class="dropdown-menu dropdown-menu-end">
-                                                    <a class="dropdown-item" href="#">
-                                                        <i data-feather="edit-2" class="me-50"></i>
-                                                        <span>Show</span>
+                                                    <a class="dropdown-item" href="{{ route('admin.employees.edit', $emp->id) }}">
+                                                        <i data-feather="edit" class="me-50"></i>
+                                                        <span>Edit</span>
                                                     </a>
                                                     <a class="dropdown-item" href="javascript:void(0)" onclick="deleteData({{ $emp->id }})">
                                                         <i data-feather="trash" class="me-50" ></i>
                                                         <span>Delete</span>
                                                     </a>
 
-                                                    <form id="delete-form-{{ $emp->id }}" method="POST" action="{{ route('admin.slider.destroy', $emp->id) }}" style="display: none">
+                                                    <form id="delete-form-{{ $emp->id }}" method="POST" action="{{ route('admin.employees.destroy', $emp->id) }}" style="display: none">
                                                         @csrf
                                                         @method('DELETE')
                                                     </form>
@@ -97,7 +97,7 @@
 
                             <div>
                                 <label class="form-label fw-bolder font-size font-small-4 mb-50" for="addMemberSelect">Employee Name</label>
-                                <input type="text" name="name" class="form-control" placeholder="e.g Slider Title">
+                                <input type="text" name="name" class="form-control" placeholder="e.g Employee name">
                             </div>
 
                             <div class="mt-1">
@@ -107,7 +107,7 @@
 
                             <div class="mt-1">
                                 <label class="form-label fw-bolder font-size font-small-4 mb-50" for="addMemberSelect">Employee Description</label>
-                                <textarea type="text" rows="5" name="descriptions" class="form-control" placeholder="e.g Slider Descriptions"></textarea>
+                                <textarea type="text" rows="5" name="descriptions" class="form-control" placeholder="e.g Descriptions about employee"></textarea>
                             </div>
 
                             <div class="mt-1">

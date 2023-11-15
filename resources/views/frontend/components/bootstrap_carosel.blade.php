@@ -1,7 +1,7 @@
 
 {{--@include('frontend.partials.header')--}}
 
-<div id="carouselExampleCaptions" class="carousel slide carousel-fade">
+<div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
     <div class="carousel-inner text-white">
         @foreach($sliders as $slid)
         <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
