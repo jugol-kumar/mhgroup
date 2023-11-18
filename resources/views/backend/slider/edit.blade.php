@@ -26,10 +26,10 @@
                                 <input type="text" name="descriptions" class="form-control" @if($slider?->descriptions) value="{{ $slider?->descriptions }}" @else placeholder="e.g Slider Descriptions" @endif>
                             </div>
 
-                            <div class="mt-1">
-                                <label class="form-label fw-bolder font-size font-small-4 mb-50" for="addMemberSelect">Button Name</label>
-                                <input type="text" name="button_name" class="form-control" @if($slider?->button_name) value="{{ $slider?->button_name }}" @else placeholder="e.g Button name" @endif>
-                            </div>
+{{--                            <div class="mt-1">--}}
+{{--                                <label class="form-label fw-bolder font-size font-small-4 mb-50" for="addMemberSelect">Button Name</label>--}}
+{{--                                <input type="text" name="button_name" class="form-control" @if($slider?->button_name) value="{{ $slider?->button_name }}" @else placeholder="e.g Button name" @endif>--}}
+{{--                            </div>--}}
 
                             <button class="btn btn-primary mt-1" type="submit">Update Item</button>
                         </form>

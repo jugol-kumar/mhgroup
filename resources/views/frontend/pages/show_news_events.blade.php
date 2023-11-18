@@ -4,17 +4,14 @@
         .video_frincybox{
             height:auto !important;
         }
-        /*        .readMore{
-                    background:red;
-                    border-radius: 50px !important;
-                }*/
-        html:not(.sticky-header-active) #header.header-transparent:not(.header-semi-transparent) .header-body{
-            background: #000000de !important;
-        }
-        #header.header-transparent-dark-bottom-border .header-body{
-            background: #000000 !important;
-        }
+            html:not(.sticky-header-active) #header.header-transparent:not(.header-semi-transparent) .header-body{
+                background: #000000de !important;
+            }
+            #header.header-transparent-dark-bottom-border .header-body{
+                background: #000000 !important;
+            }
     </style>
+
 @endpush
 @section('content')
     <section style=" min-height: inherit;">

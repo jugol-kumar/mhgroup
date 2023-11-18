@@ -22,7 +22,7 @@
 
 <div class="row">
     @forelse($halfVideos as $video)
-        <div class="col-md-6 m-0 p-0">
+        <div class="col-md-6 m-0 p-0 bg-black">
             <div class="video_frincybox">
                 <a href="{{ $video->video_link }}" data-fancybox="video-gallery">
                     <img alt="" class="w-100 h-100" src="{{  '/storage/'.$video->thumbnail }}">

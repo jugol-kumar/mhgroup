@@ -32,10 +32,10 @@
                                             <img src="{{ '/storage/'.$slider->bg_image }}" alt="" width="120">
                                         </td>
                                         <td>
-                                            {{ $slider->title }}
+                                            {{ $slider->title ?? '--' }}
                                         </td>
-                                        <td>{{ $slider->descriptions }}</td>
-                                        <td>{{ $slider->button_name }}</td>
+                                        <td>{{ $slider->descriptions ?? '--'}}</td>
+                                        <td>{{ $slider->button_name ?? '--'}}</td>
                                         <td>
                                             <div class="dropdown">
                                                 <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0" data-bs-toggle="dropdown">
@@ -100,10 +100,10 @@
                                 <input type="text" name="descriptions" class="form-control" placeholder="e.g Slider Descriptions">
                             </div>
 
-                            <div class="mt-1">
-                                <label class="form-label fw-bolder font-size font-small-4 mb-50" for="addMemberSelect">Button Name</label>
-                                <input type="text" name="button_name" class="form-control" placeholder="e.g Button name">
-                            </div>
+{{--                            <div class="mt-1">--}}
+{{--                                <label class="form-label fw-bolder font-size font-small-4 mb-50" for="addMemberSelect">Button Name</label>--}}
+{{--                                <input type="text" name="button_name" class="form-control" placeholder="e.g Button name">--}}
+{{--                            </div>--}}
 
                             <button class="btn btn-primary mt-1" type="submit">Save Slider</button>
                         </form>

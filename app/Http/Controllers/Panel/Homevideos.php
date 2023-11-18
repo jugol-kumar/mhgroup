@@ -35,7 +35,7 @@ class Homevideos extends Controller
     {
 
         $data = $request->validate([
-            'title' => 'required',
+            'title' => 'nullable',
             'thumbnail' => 'required',
             'video_link' => 'required',
             'link' => 'nullable',
@@ -77,7 +77,7 @@ class Homevideos extends Controller
         $video = Video::findOrFail($id);
 
         $data = $request->validate([
-            'title' => 'required',
+            'title' => 'nullable',
             'video_link' => 'required',
             'link' => 'nullable',
             'button_name' => 'nullable'

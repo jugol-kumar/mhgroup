@@ -74,8 +74,8 @@ class SliderController extends Controller
     {
 
         $data = $request->validate([
-            'title' => 'required',
-            'descriptions' => 'required',
+            'title' => 'nullable',
+            'descriptions' => 'nullable',
             'button_name' => 'nullable'
         ]);
 

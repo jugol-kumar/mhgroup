@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
 
 
         view()->composer(
-            ['frontend.partials.header'],
+            ['frontend.partials.header', 'frontend.pages.show_news_events'],
             function ($view) {
                 $view->with('concerns', OurConcern::all());
             }

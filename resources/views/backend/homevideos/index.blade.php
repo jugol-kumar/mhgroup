@@ -32,7 +32,7 @@
                                             <img src="{{ '/storage/'.$video->thumbnail }}" alt="" width="120">
                                         </td>
                                         <td>
-                                            {{ $video->title }}
+                                            {{ $video->title ?? '---'}}
                                         </td>
                                         <td>{{ $video->video_link }}</td>
                                         <td>
