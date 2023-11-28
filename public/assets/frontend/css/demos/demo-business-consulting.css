@@ -18,7 +18,7 @@ h2 {
 .shadow-text{
     color: white;
     font-weight: bolder;
-    text-shadow: 2px 2px 0px #fbaaaa;
+    /*text-shadow: 2px 2px 0px #fbaaaa;*/
 }
 .custom-primary-font {
     font-family: "Sintony", sans-serif;

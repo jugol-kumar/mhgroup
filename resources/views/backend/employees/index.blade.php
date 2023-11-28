@@ -8,7 +8,7 @@
                 <div class="card">
                     <div class="card-header d-flex align-content-center justify-content-between">
                         <h4 class="card-title">Client Message</h4>
-                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#shareProject">Add Slider</button>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#shareProject">Add Employee</button>
                     </div>
                     <div class="card-body">
                         @include('backend.components.validationerrors')
@@ -37,7 +37,7 @@
                                         <td>{{ Str::limit($emp->about, 80) }}</td>
                                         <td>
                                             <span class="badge {{  $emp->type == 'junior' ? 'badge-light-primary' : 'badge-light-info'}}">
-                                                {{ $emp->type }}
+                                                {{ $emp->type == 'junior' ? 'Top Management' : 'Senior Management' }}
                                             </span>
                                         </td>
                                         <td>
@@ -86,8 +86,7 @@
 
                     <div class="modal-body px-sm-5 mx-50 pb-4">
 
-                        <h1 class="text-center mb-1 text-black" id="shareProjectTitle">Add New Slider</h1>
-                        <p class="text-center">Added interactive slider image title and descriptions.</p>
+                        <h1 class="text-center mb-1 text-black" id="shareProjectTitle">Add New Employee</h1>
 
                         <form action="{{ route('admin.employees.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
@@ -114,8 +113,8 @@
                                 <label class="form-label fw-bolder font-size font-small-4 mb-50" for="addMemberSelect">Employee Type</label>
                                 <select name="type" id="" class="form-control">
                                     <option value="" selected disabled> Selected Employee Type</option>
-                                    <option value="junior">Junior</option>
-                                    <option value="senior">Senior</option>
+                                    <option value="junior">Top Management</option>
+                                    <option value="senior">Senior Management</option>
                                 </select>
                             </div>
 

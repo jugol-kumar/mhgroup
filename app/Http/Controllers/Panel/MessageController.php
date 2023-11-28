@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Validator;
 class MessageController extends Controller
 {
     public function message(){
-        $messages = Lead::paginate(10);
+        $messages = Lead::query()->latest()->paginate(10);
         return view('backend.messages.index', compact('messages'));
     }
 
@@ -21,10 +21,16 @@ class MessageController extends Controller
 //            'email' => 'required|email',
 //            'message' => 'sometimes'
 //        ]);
+//
+//        $name = $request->input('name');
+//        $email = $request->input('email');
+//
+//        return $name."....".$email;
+
 
         $data = Validator::make($request->all(), [
             'name' => 'required|max:30',
-            'email' => 'required|email',
+            'email' => 'required',
             'message' => 'sometimes'
         ]);
 

@@ -6,14 +6,16 @@
              'stickyChangeLogo': true,
               'stickyStartAt': 30,
               'stickyHeaderContainerHeight': 90}">
-    <div class="header-body border-top-0  {{ isset($trans) && $trans == true ? 'backdrop-filter' : 'bg-white'}} box-shadow-none">
+    <div class="header-body border-top-0 backdrop-filter bg-black {{ isset($trans) && $trans == true ? '' : 'bg-white'}} box-shadow-none">
         <div class="header-container container">
             <div class="header-row">
                 <div class="header-column">
                     <div class="header-row">
-                        <div class="header-logo">
+                        <div >
                             <a href="/">
-                                <img alt="{{ config("app.name") }}" class="header-main-logo" src="{{ get_setting('header_logo') ? '/storage/'.get_setting('header_logo') : asset('assets/frontend/img/logo.png') }}">
+                                <img alt="{{ config("app.name") }}" class="header-main-logo"
+                                     style="width:100%; height:100%;"
+                                     src="{{ get_setting('header_logo') ? '/storage/'.get_setting('header_logo') : asset('assets/frontend/img/logo.png') }}">
                             </a>
                         </div>
                     </div>

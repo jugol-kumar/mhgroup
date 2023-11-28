@@ -26,22 +26,20 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Welcome To MH-Group</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" id="closeModal" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <form action="{{ route('message.create') }}" method="POST" class="custom-contact-form-style-1 form-errors-light" >
+                            <small id="errorMessage"></small>
+{{--                                action="{{ route('message.create') }}" method="post" --}}
+                            <form action="{{ route('message.create') }}" method="post" id="saveLead" class="custom-contact-form-style-1 form-errors-light" >
                                 @csrf
-                                <input type="text" value="" data-msg-required="Please enter your name."
+                                <input type="text"
                                        maxlength="100" class="form-control" name="name"
                                        placeholder="Name*">
-                            {{--                            <input type="text" class="form-control rounded-0 my-2" placeholder="e.g example@email.com">--}}
-
-                                <input type="email" value=""
-                                       data-msg-required="Please enter your email address."
-                                       data-msg-email="Please enter a valid email address."
-                                       maxlength="100" class="form-control my-2" name="email" placeholder="Email*">
+                                <input type="text"
+                                       maxlength="100" class="form-control my-2" name="email" placeholder="Phone Number*">
                                 <button class="btn btn-secondary" type="submit">Submit</button>
                             </form>
                         </div>
@@ -97,5 +95,41 @@
     Fancybox.bind('[data-fancybox]', {
         // Custom options
     });
+
+
+
+
+    document.querySelector('#saveLead').addEventListener('submit', (e) => {
+        e.preventDefault();
+
+
+        var formData = new FormData(e.target);
+
+        if(formData.get('name') && formData.get('email')){
+            document.getElementById("errorMessage").innerHTML = ""
+            document.getElementById("saveLead").submit();
+
+
+        {{--fetch("{{ route('message.create') }}", {--}}
+            {{--    method: 'POST',--}}
+            {{--    body: formData--}}
+            {{--}).then((res) => {--}}
+
+            {{--    document.getElementById("errorMessage").innerHTML = "Thanks for your contact."--}}
+            {{--    document.getElementById("errorMessage").classList.add("text-success")--}}
+            {{--    document.getElementById("closeModal").click();--}}
+            {{--});--}}
+
+
+
+
+        }else{
+            document.getElementById("errorMessage").innerHTML = "Please Enter Valid Name And Phone Number."
+            document.getElementById("errorMessage").classList.add("text-danger")
+        }
+
+    });
+
+
 </script>
 @include('sweetalert::alert')

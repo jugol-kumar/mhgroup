@@ -17,7 +17,7 @@
 
                             <div>
                                 <label class="form-label fw-bolder font-size font-small-4 mb-50" for="addMemberSelect">Employee Name</label>
-                                <input type="text" name="name" class="form-control"  @if($employee?->name) value="{{ $employee?->name }}" @else placeholder="e.g Slider Title" @endif>
+                                <input type="text" name="name" class="form-control"  @if($employee?->name) value="{{ $employee?->name }}" @else placeholder="e.g Employee Name" @endif>
                             </div>
 
                             <div class="mt-1">
@@ -34,8 +34,8 @@
                                 <label class="form-label fw-bolder font-size font-small-4 mb-50" for="addMemberSelect">Employee Type</label>
                                 <select name="type" id="" class="form-control">
                                     <option value="" selected disabled> Selected Employee Type</option>
-                                    <option value="junior" {{ $employee->type == 'junior' ? 'selected' : '' }}>Junior</option>
-                                    <option value="senior" {{ $employee->type == 'senior' ? 'selected' : '' }}>Senior</option>
+                                    <option value="junior" {{ $employee->type == 'junior' ? 'selected' : '' }}>Top Management</option>
+                                    <option value="senior" {{ $employee->type == 'senior' ? 'selected' : '' }}>Senior Management</option>
                                 </select>
                             </div>
 

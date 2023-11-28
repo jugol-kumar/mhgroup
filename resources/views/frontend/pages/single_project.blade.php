@@ -124,30 +124,30 @@
                 </div>
             </div>
             <div class="slider-bottom-section mt-3">
-                <div class="project-header-details d-flex align-items-center justify-content-around">
+                <div class="project-header-details d-flex align-items-center justify-content-around flex-wrap flex-lg-nowrap">
                     @if($project?->location)
-                        <div class="p-5 d-flex align-items-center justify-content-center text-center flex-column">
+                        <div class="p-3 p-lg-5 d-flex align-items-center justify-content-center text-center flex-column">
                             <p class="mb-1 fs-6 font-weight-normal text-gray">Location</p>
                             <p class="m-0 p-0 fs-5 text-white">{{ $project?->location}}</p>
                         </div>
                     @endif
 
                     @if($project?->apartment_size)
-                        <div class="p-5 d-flex align-items-center justify-content-center text-center flex-column">
+                        <div class="p-3 p-lg-5 d-flex align-items-center justify-content-center text-center flex-column">
                             <p class="mb-1 fs-6 font-weight-normal text-gray">Apartment Size</p>
                             <p class="m-0 p-0 fs-5 text-white">{{ $project?->apartment_size}}</p>
                         </div>
                     @endif
 
                     @if($project?->launch_date)
-                        <div class="p-5 d-flex align-items-center justify-content-center text-center flex-column">
+                        <div class="p-3 p-lg-5 d-flex align-items-center justify-content-center text-center flex-column">
                             <p class="mb-1 fs-6 font-weight-normal text-gray">Completion Date</p>
                             <p class="m-0 p-0 fs-5 text-white">{{ Carbon\Carbon::parse($project?->launch_date)->format("F Y") }}</p>
                         </div>
                     @endif
 
                     @if($project?->category)
-                        <div class="p-5 d-flex align-items-center justify-content-center text-center flex-column">
+                        <div class="p-3 p-lg-5 d-flex align-items-center justify-content-center text-center flex-column">
                             <p class="mb-1 fs-6 font-weight-normal text-gray">Status</p>
                             <p class="m-0 p-0 fs-5 text-white">{{ $project?->category?->title }}</p>
                         </div>
@@ -158,7 +158,7 @@
     </div>
     <div class="bg-white">
         <div class="container">
-            <div class="d-flex align-items-center gap-5 py-5">
+            <div class="d-flex align-items-center gap-5 py-5 builderContent">
                 <div class="builder_logo">
                     <img class="w-100" src="/storage/{{ $project?->builders_logo }}" alt="">
                 </div>
@@ -170,7 +170,7 @@
     </div>
     <div class="bg-black">
         <div class="py-5 container">
-            <div class="d-flex gap-1">
+            <div class="d-flex gap-1 projectFeatured">
                 <div class="single-feture-box bbg w-100 d-flex align-items-center justify-content-center" style="height:15rem">
                     <a class="w-100 h-100" href="#atAGlance">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 48 48">
@@ -214,7 +214,7 @@
                 </div>
             </div>
 
-            <div class="d-flex gap-1 mt-1">
+            <div class="d-flex gap-1 mt-1 flex-wrap flex-lg-nowrap">
                 <div class="single-feture-box wbg w-100 d-flex align-items-center justify-content-center" style="height:15rem">
                     <a class="w-100 h-100" href="#floorPlans">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 48 48" height="48" width="48">
@@ -505,13 +505,29 @@
 
 
         var mySwiper = new Swiper(".gallery-swipper", {
-            spaceBetween: 3,
-            slidesPerView: 3,
             centeredSlides: true,
             roundLengths: true,
             autoplay:true,
             loop: true,
             loopAdditionalSlides: 30,
+            breakpoints: {
+                200: {
+                    spaceBetween: 0,
+                    slidesPerView: 1,
+                },
+                640: {
+                    slidesPerView: 2,
+                    spaceBetween: 10,
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 10,
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 15,
+                },
+            },
             navigation: {
                 nextEl: ".gallery-swiper-prev",
                 prevEl: ".gallery-swiper-next"
@@ -520,11 +536,27 @@
         new Swiper(".mySwiper",{loop:true});
 
         var swiper = new Swiper('.swipper-carousel', {
-            slidesPerView: 3,
-            spaceBetween: 15,
             loop:true,
             autoplay:true,
             pagination:true,
+            breakpoints: {
+                200: {
+                    slidesPerView: 1,
+                    spaceBetween: 0,
+                },
+                640: {
+                    slidesPerView: 2,
+                    spaceBetween: 10,
+                },
+                768: {
+                    slidesPerView: 2,
+                    spaceBetween: 10,
+                },
+                1024: {
+                    slidesPerView: 3,
+                    spaceBetween: 15,
+                },
+            },
             navigation: {
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',

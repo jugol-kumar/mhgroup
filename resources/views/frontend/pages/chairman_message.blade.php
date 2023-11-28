@@ -32,14 +32,14 @@
                             <p class="text-justify text-black"
                                data-appear-animation="fadeInLeftShorterPlus"
                                data-appear-animation-delay="800" >
-                                {{ json_decode(get_setting('chairman_message'))?->section_description }}
+                                {!! nl2br(json_decode(get_setting('chairman_message'))?->section_description) !!}
                             </p>
                         @endif
 
                         @if(json_decode(get_setting('chairman_message'))?->footer_text )
                             <h4 class="header-before text-black d-flex align-items-end justify-content-center text-capitalize"
                                 data-appear-animation="fadeInLeftShorterPlus"
-                                data-appear-animation-delay="1100">{{  json_decode(get_setting('chairman_message'))?->footer_text  }}</h4>
+                                data-appear-animation-delay="1100">{!! nl2br(json_decode(get_setting('chairman_message'))?->footer_text) !!}</h4>
                         @endif
                     </div>
                 </div>

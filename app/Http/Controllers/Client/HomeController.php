@@ -28,8 +28,8 @@ class HomeController extends Controller
     }
 
     public function about(){
-        $juniorEmp = Employee::where('type', 'junior')->latest()->take(3)->get();
-        $sinEmp = Employee::where('type', 'senior')->latest()->take(4)->get();
+        $juniorEmp = Employee::where('type', 'junior')->latest()->get(); //take(3)
+        $sinEmp = Employee::where('type', 'senior')->latest()->get(); //->take(4)
 
         $galleries = Gallery::all();
 

@@ -1,3 +1,7 @@
+/*html:not(.sticky-header-active) #header.header-transparent:not(.header-semi-transparent) .header-body{*/
+/*    background:black !important;*/
+/*}*/
+
 .about-section{
     width: 100%;
     height: 80vh;
@@ -40,6 +44,7 @@
     height: 260px;
     border: 2px solid orange;
     padding: 8px;
+    object-fit:cover;
 }
 .single-user-card .card-img-top{
     display: flex;
@@ -638,6 +643,7 @@ span::before, span::after{
     height: 236px;
     border: 2px solid orange;
     padding: 8px;
+    object-fit:cover;
 }
 .single-user-card .card-img-top{
     display: flex;
@@ -702,7 +708,7 @@ span::before, span::after{
 .shadow-text{
     color: white;
     font-weight: bolder;
-    text-shadow: 2px 2px 0px #fbaaaa;
+    /*text-shadow: 2px 2px 0px #fbaaaa;*/
     z-index: 1;
 }
 .dropdown-menu {
@@ -850,8 +856,8 @@ footer{
 }
 
 .header-main-logo{
-    width: 45px !important;
-    height: 96% !important;
+    width: 60px !important;
+    height: auto !important;
     object-fit: contain !important;
 }
 .carousel-main-height{
@@ -889,8 +895,8 @@ footer{
         min-height: 50px !important;
     }
     .header-logo .header-main-logo{
-        width: 30px !important;
-        height: 96% !important;
+        width: 75px;
+        height: 60px;
         object-fit: contain !important;
     }
     .video_frincybox{
@@ -956,6 +962,18 @@ footer{
     #header .header-nav-main.header-nav-main-mobile-dark nav>ul li a:hover{
         background: #f7f7f7 !important;
     }
+
+    .projectFeatured{
+        flex-wrap: wrap !important;
+    }
+    .builderContent{
+        flex-direction: column !important;
+    }
+
+    .single-user-card .card-img-top img{
+        width:80% !important;
+    }
+
 }
 
 @media (max-width: 768px) {
