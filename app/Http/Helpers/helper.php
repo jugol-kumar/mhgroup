@@ -33,6 +33,7 @@ if (!function_exists('get_setting')) {
 
 if (!function_exists('store_file')){
     function store_file($file, $drive=null, $name=null){
+
         $makeName = $name ? $name.'_'.uniqid().'.'.$file->getClientOriginalExtension() : uniqid().'.'.$file->getClientOriginalExtension();
         $path = Storage::disk('public')->putFileAs($drive ?? 'common', $file, $makeName);
         return $path;

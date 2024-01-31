@@ -37,8 +37,10 @@ class EmployeeController extends Controller
             'name' => 'required',
             'designation' => 'nullable',
             'descriptions' => 'nullable',
-            'type' => 'required'
+            'type' => 'required',
+            'profile' => 'required|mimes:png,jpg,svg|file|max:1024',
         ]);
+
         $data['about'] = $request->descriptions;
         $data['image'] = store_file($request->file('profile'), 'employees');
 
@@ -75,7 +77,8 @@ class EmployeeController extends Controller
             'name' => 'required',
             'designation' => 'nullable',
             'descriptions' => 'nullable',
-            'type' => 'required'
+            'type' => 'required',
+            'profile' => 'sometimes|mimes:png,jpg,svg|file|max:1024',
         ]);
         $data['about'] = $request->descriptions;
 

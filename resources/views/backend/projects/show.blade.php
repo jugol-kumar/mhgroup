@@ -47,6 +47,9 @@
                 @csrf
                 @method("put")
                 <div class="card-body project-images">
+                    <div class="card-header">
+                        @include('backend.components.validationerrors')
+                    </div>
                     <div class="row match-height">
                         <div class="col-md-4">
                             <div class="card">

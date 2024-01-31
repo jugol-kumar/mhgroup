@@ -51,15 +51,20 @@ class ProjectController extends Controller
             'address' => 'required',
             'map_location' => 'required',
 
-            'builders_logo' => 'required',
+            'builders_logo' => 'required|mimes:png,jpg,svg|file|max:500',
             'about_builders' => 'required',
 
-            'thumbnail' => 'required',
-            'image' => 'required',
+            'thumbnail' => 'required|mimes:png,jpg,svg|file|max:1024',
+            'image' => 'required|mimes:png,jpg,svg|file|max:1024',
 
             'features_images' => 'required',
+            'features_images.*' => ['image', 'mimes:jpeg,png,jpg,svg', 'max:2048'],
+
             'lifestyle_images' => 'required',
+            'lifestyle_images.*' => ['image', 'mimes:jpeg,png,jpg,svg', 'max:2048'],
+
             'floor_plans_images' => 'required',
+            'floor_plans_images.*' => ['image', 'mimes:jpeg,png,jpg,svg', 'max:2048'],
         ]);
 
         $data['no_floors'] = $request->input('number_floors');
@@ -124,6 +129,7 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
+
         $data = $request->validate([
             'category_id' => 'required',
             'title' => 'required',
@@ -140,6 +146,20 @@ class ProjectController extends Controller
             'map_location' => 'required',
 
             'about_builders' => 'required',
+
+
+            'builders_logo' => 'sometimes|mimes:png,jpg,svg|file|max:500',
+            'thumbnail' => 'sometimes|mimes:png,jpg,svg|file|max:1024',
+            'image' => 'sometimes|mimes:png,jpg,svg|file|max:1024',
+
+            'features_images' => 'sometimes',
+            'features_images.*' => ['image', 'mimes:jpeg,png,jpg,svg', 'max:2048'],
+
+            'lifestyle_images' => 'sometimes',
+            'lifestyle_images.*' => ['image', 'mimes:jpeg,png,jpg,svg', 'max:2048'],
+
+            'floor_plans_images' => 'sometimes',
+            'floor_plans_images.*' => ['image', 'mimes:jpeg,png,jpg,svg', 'max:2048'],
         ]);
 
         $project->update($data);
@@ -150,6 +170,12 @@ class ProjectController extends Controller
     public function updateImage(Request $request, $id)
     {
         $project = Project::findOrFail($id);
+
+        $request->validate([
+            'thumbnail' => ['image', 'mimes:jpeg,png,jpg,svg', 'max:2048'],
+            'image' => ['image', 'mimes:jpeg,png,jpg,svg', 'max:2048'],
+            'builders_logo' => ['image', 'mimes:jpeg,png,jpg,svg', 'max:2048'],
+        ]);
 
         if($request->hasFile('thumbnail')){
             if (Storage::disk('public')->exists($project->thumbnail)){
@@ -206,6 +232,10 @@ class ProjectController extends Controller
     }
 
     public function updateFeaturedImage(Request  $request, $id){
+        $request->validate([
+            'featuredImage' => ['required','image', 'mimes:jpeg,png,jpg,svg', 'max:2048'],
+        ]);
+
         ProjectFeatures::create([
             'project_id' => $id,
             'image' => store_file($request->featuredImage, 'projects', 'project'),
@@ -215,6 +245,9 @@ class ProjectController extends Controller
     }
 
     public function updateLifestyleImage(Request  $request, $id){
+        $request->validate([
+            'lifestyleImage' => ['required', 'image', 'mimes:jpeg,png,jpg,svg', 'max:2048'],
+        ]);
         ProjectLifestyle::create([
             'project_id' => $id,
             'image' => store_file($request->lifestyleImage, 'projects', 'project'),
@@ -225,6 +258,9 @@ class ProjectController extends Controller
 
 
     public function updateFLoorImage(Request  $request, $id){
+        $request->validate([
+            'floor_plan' => ['required','image', 'mimes:jpeg,png,jpg,svg', 'max:2048'],
+        ]);
         ProjectPlan::create([
             'project_id' => $id,
             'image' => store_file($request->floor_plan, 'projects', 'project'),

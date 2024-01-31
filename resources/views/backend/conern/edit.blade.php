@@ -76,12 +76,8 @@
 
                             <div class="mt-1">
                                 <label class="form-label fw-bolder font-size font-small-4 mb-50" for="full-container">Post Details</label>
-                                <div id="full-container">
-                                    <div class="editor">
-                                        {!! $concern->about ?? '' !!}
-                                    </div>
-                                </div>
-                                <input type="hidden" id="post_details" name="about" value="{{ $concern->about ?? ''  }}">
+                                <textarea name="about" class="summernote">{!!  $concern->about ?? old('about') !!}</textarea>
+{{--                                <input type="hidden" id="post_details" name="about" value="{{ $concern->about ?? ''  }}">--}}
                             </div>
                             <button class="btn btn-primary mt-1" type="submit">Update Concern</button>
                         </form>

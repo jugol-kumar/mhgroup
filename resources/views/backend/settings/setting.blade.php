@@ -18,7 +18,7 @@
                         <div class="card-body border-bottom">
                             <div class="card card-statistics">
                                 <div class="card-header">
-                                    <h4 class="card-title">Settings</h4>
+                                    @include('backend.components.validationerrors')
                                 </div>
                                 <div class="card-body statistics-body">
                                     <div class="row">

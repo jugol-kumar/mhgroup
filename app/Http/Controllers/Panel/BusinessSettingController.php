@@ -18,8 +18,6 @@ class BusinessSettingController extends Controller
 
     public function update(Request $request){
 
-//        return $request;
-
         foreach ($request->types as $key => $type) {
             $business_settings = BusinessSetting::where('type', $type)->first();
 
@@ -41,17 +39,30 @@ class BusinessSettingController extends Controller
                 }
 
                 if ($type == 'header_logo' && $request->hasFile('header_logo')){
+                    $request->validate([
+                        'header_logo' => 'mimes:png,jpg,svg|file|max:100'
+                    ]);
+
                     $business_settings->value = store_file($request->file('header_logo'));
                 }
 
                 if ($type == 'favicon' && $request->hasFile('favicon')) {
+                    $request->validate([
+                        'favicon' => 'mimes:png,jpg,svg|file|max:100'
+                    ]);
                     $business_settings->value = store_file($request->file('favicon'));
                 }
 
                 if ($type == 'profile' && $request->hasFile('profile')) {
+                    $request->validate([
+                        'profile' => 'mimes:png,jpg,svg|file|max:500'
+                    ]);
                     $business_settings->value = store_file($request->file('profile'));
                 }
                 if ($type == 'concern_image' && $request->hasFile('concern_image')) {
+                    $request->validate([
+                        'concern_image' => 'mimes:png,jpg,svg|file|max:500'
+                    ]);
                     $business_settings->value = store_file($request->file('concern_image'));
                 }
                 $business_settings->save();
@@ -68,16 +79,28 @@ class BusinessSettingController extends Controller
                 }
 
                 if ($type == 'header_logo' && $request->hasFile('header_logo')){
+                    $request->validate([
+                        'header_logo' => 'mimes:png,jpg,svg|file|max:100'
+                    ]);
                     $business_settings->value = store_file($request->file('header_logo'));
                 }
 
                 if ($type == 'favicon' && $request->hasFile('favicon')) {
+                    $request->validate([
+                        'favicon' => 'mimes:png,jpg,svg|file|max:100'
+                    ]);
                     $business_settings->value = store_file($request->file('favicon'));
                 }
                 if ($type == 'profile' && $request->hasFile('profile')) {
+                    $request->validate([
+                        'profile' => 'mimes:png,jpg,svg|file|max:500'
+                    ]);
                     $business_settings->value = store_file($request->file('profile'));
                 }
                 if ($type == 'concern_image' && $request->hasFile('concern_image')) {
+                    $request->validate([
+                        'concern_image' => 'mimes:png,jpg,svg|file|max:500'
+                    ]);
                     $business_settings->value = store_file($request->file('concern_image'));
                 }
                 $business_settings->save();

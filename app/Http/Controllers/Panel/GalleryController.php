@@ -34,7 +34,8 @@ class GalleryController extends Controller
         $request->validate([
             'title' => 'required',
             'type' => 'required',
-            'image' => 'required'
+            'image' => 'required|mimes:png,jpg,svg|file|max:1024',
+
         ]);
 
         if ($request->input('type') == 'video'){
@@ -80,6 +81,11 @@ class GalleryController extends Controller
      */
     public function update(Request $request, Gallery $gallery)
     {
+        $request->validate([
+            'title' => 'required',
+            'image' => 'sometimes|mimes:png,jpg,svg|file|max:1024',
+        ]);
+
         if($request->hasFile('image')){
             Storage::disk('public')->delete($gallery->thumb);
             $name = 'HomeItem'.uniqid().'.'.$request->file('image')->getClientOriginalExtension();

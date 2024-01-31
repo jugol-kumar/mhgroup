@@ -101,12 +101,7 @@
 
                             <div class="mt-1">
                                 <label class="form-label fw-bolder font-size font-small-4 mb-50" for="full-container">Post Details</label>
-                                <div id="full-container">
-                                    <div class="editor">
-                                        {!! old('details') ?? '' !!}
-                                    </div>
-                                </div>
-                                <input type="hidden" id="post_details" name="details" value="{{ old('details') ?? ''  }}">
+                                <textarea name="post_details" class="summernote">{!! old('details') ?? '' !!}</textarea>
                             </div>
 
                             <div class="mt-1">

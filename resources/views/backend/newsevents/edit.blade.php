@@ -21,12 +21,7 @@
 
                             <div class="mt-1">
                                 <label class="form-label fw-bolder font-size font-small-4 mb-50" for="full-container">Post Details</label>
-                                <div id="full-container">
-                                    <div class="editor">
-                                        {!! $post->details ?? '' !!}
-                                    </div>
-                                </div>
-                                <input type="hidden" id="post_details" name="details" value="{{ $post->details ?? ''  }}">
+                                <textarea name="post_details" class="summernote">{!! $post->details  ?? old('details') !!}</textarea>
                             </div>
 
                             <div class="mt-1">

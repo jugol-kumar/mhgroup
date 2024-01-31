@@ -35,7 +35,7 @@ class SliderController extends Controller
         $data = $request->validate([
             'title' => 'nullable',
             'descriptions' => 'nullable',
-            'bg_image' => 'required',
+            'bg_image' => 'required|mimes:png,jpg,svg|file|max:1024',
             'button_name' => 'nullable'
         ]);
 
@@ -76,6 +76,7 @@ class SliderController extends Controller
         $data = $request->validate([
             'title' => 'nullable',
             'descriptions' => 'nullable',
+            'bg_image' => 'sometimes|mimes:png,jpg,svg|file|max:1024',
             'button_name' => 'nullable'
         ]);
 

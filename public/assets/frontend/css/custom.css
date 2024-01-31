@@ -194,8 +194,8 @@
 /*header style*/
 
 .backdrop-filter{
-    backdrop-filter: blur(3px) !important;
-    background-color: #00000029 !important;
+    /*backdrop-filter: blur(3px) !important;*/
+    /*background-color: #00000029 !important;*/
 }
 
 .menu-black li a{
@@ -845,6 +845,17 @@ footer{
 .video_frincybox a:hover .play_icon i{
     animation: animName 2s linear infinite;
 }
+
+
+
+
+
+
+
+
+
+
+
 
 @keyframes animName {
     0%{

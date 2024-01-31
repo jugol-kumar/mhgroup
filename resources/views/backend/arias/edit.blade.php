@@ -29,19 +29,18 @@
 
                             <div class="mt-2">
                                 <label class="form-label fw-bolder font-size font-small-4 mb-50" for="addMemberSelect">Short Content</label>
-                                <textarea name="short_content" class="form-control" placeholder="e.g write 100 to 150 word details" rows="7">{{ $area->short_content ??  old('short_content')  }}</textarea>
+                                <textarea name="short_content" class="form-control" placeholder="e.g write 100 to 150 word details" rows="7">
+                                    {{ $area->short_content ??  old('short_content')  }}
+                                </textarea>
                             </div>
 
 
 
                             <div class="mt-1">
                                 <label class="form-label fw-bolder font-size font-small-4 mb-50" for="full-container">Post Details</label>
-                                <div id="full-container">
-                                    <div class="editor">
-                                        {!!  $area->content ?? old('content')  !!}
-                                    </div>
-                                </div>
-                                <input type="hidden" id="post_details" name="content" value="{{  $area->content ?? old('about')   }}">
+                                <textarea name="content" class="summernote">
+                                    {!!  $area->content ?? old('about')  !!}
+                                </textarea>
                             </div>
 
                             <button class="btn btn-primary mt-1" type="submit">Update Item</button>

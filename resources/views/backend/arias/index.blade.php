@@ -86,9 +86,7 @@
 
                     <form action="{{ route('admin.home-arias.store') }}" method="post" enctype="multipart/form-data">
                         @csrf
-
                         @include('backend.components.feviconLogo', ['name' => 'thumbnail'])
-
                         <div>
                             <label class="form-label fw-bolder font-size font-small-4 mb-50" for="addMemberSelect">Area</label>
                             <input type="text" name="title" class="form-control" value="{{ old('title') }}" placeholder="e.g Area Title">
@@ -101,10 +99,7 @@
 
                         <div class="mt-1">
                             <label class="form-label fw-bolder font-size font-small-4 mb-50" for="full-container">Post Details</label>
-                            <div id="full-container">
-                                <div class="editor"></div>
-                            </div>
-                            <input type="hidden" id="post_details" name="content">
+                            <textarea name="post_details" class="summernote"></textarea>
                         </div>
 
 

@@ -33,10 +33,11 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+
         $data = $request->validate([
             'title' => 'required',
             'details' => 'required',
-            'thumbnail' => 'required',
+            'thumbnail' => 'required|mimes:png,jpg,svg|file|max:1024',
             'status' => 'required'
         ]);
 
@@ -82,7 +83,7 @@ class PostController extends Controller
         $data = $request->validate([
             'title' => 'required',
             'details' => 'required',
-            'thumbnail' => 'nullable',
+            'thumbnail' => 'sometimes|mimes:png,jpg,svg|file|max:1024',
             'status' => 'required'
         ]);
 

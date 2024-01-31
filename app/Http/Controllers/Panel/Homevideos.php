@@ -36,7 +36,7 @@ class Homevideos extends Controller
 
         $data = $request->validate([
             'title' => 'nullable',
-            'thumbnail' => 'required',
+            'thumbnail' => 'required|mimes:png,jpg,svg|file|max:1024',
             'video_link' => 'required',
             'link' => 'nullable',
             'button_name' => 'nullable',
@@ -80,8 +80,12 @@ class Homevideos extends Controller
             'title' => 'nullable',
             'video_link' => 'required',
             'link' => 'nullable',
-            'button_name' => 'nullable'
+            'button_name' => 'nullable',
+            'thumbnail' => 'sometimes|mimes:png,jpg,svg|file|max:1024',
         ]);
+
+
+
         if ($request->hasFile('thumbnail')){
             Storage::disk('public')->delete($video->thumbnail);
             $data['thumbnail'] = store_file($request->file('thumbnail'));

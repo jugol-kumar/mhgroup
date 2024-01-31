@@ -141,12 +141,9 @@
 
                             <div class="mt-1">
                                 <label class="form-label fw-bolder font-size font-small-4 mb-50" for="full-container">Post Details</label>
-                                <div id="full-container">
-                                    <div class="editor">
-                                        {!! old('about') ?? '' !!}
-                                    </div>
-                                </div>
-                                <input type="hidden" id="post_details" name="about" value="{{ old('about') ?? ''  }}">
+                                <textarea name="about" class="summernote">
+                                    {!! old('about') ?? '' !!}
+                                </textarea>
                             </div>
 
                             <button class="btn btn-primary mt-1" type="submit">Save Concern</button>

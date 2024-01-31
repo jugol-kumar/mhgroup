@@ -34,6 +34,7 @@ class OurConcernController extends Controller
      */
     public function store(Request $request)
     {
+
         $data = $request->validate([
            'concern_name' => 'required',
            'short_name' => 'required',
@@ -42,7 +43,7 @@ class OurConcernController extends Controller
             'phone' => 'required',
             'email' => 'email|required',
             'about' => 'nullable',
-            'concern_image' => 'required'
+            'concern_image' => 'required|mimes:png,jpg,svg|file|max:1024',
         ]);
 
         $data['slug'] = Str::slug($request->input('concern_name'));
@@ -87,7 +88,7 @@ class OurConcernController extends Controller
             'phone' => 'required',
             'email' => 'email|required',
             'about' => 'nullable',
-            'concern_image' => 'sometimes'
+            'concern_image' => 'sometimes|mimes:png,jpg,svg|file|max:1024',
         ]);
         $concern = OurConcern::findOrFail($id);
 

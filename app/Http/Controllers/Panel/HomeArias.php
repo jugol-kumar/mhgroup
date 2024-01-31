@@ -33,7 +33,7 @@ class HomeArias extends Controller
     {
         $data = $request->validate([
             'title' => 'required',
-            'thumbnail' => 'required',
+            'thumbnail' => 'required|mimes:png,jpg,svg|file|max:1024',
             'short_content' => 'required|max:200',
             'content' => 'nullable'
         ]);
@@ -72,6 +72,7 @@ class HomeArias extends Controller
 
         $data = $request->validate([
             'title' => 'required',
+            'thumbnail' => 'sometimes|mimes:png,jpg,svg|file|max:1024',
             'short_content' => 'required|max:200',
             'content' => 'nullable'
         ]);

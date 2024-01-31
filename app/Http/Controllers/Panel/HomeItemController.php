@@ -34,7 +34,7 @@ class HomeItemController extends Controller
         $data = $request->validate([
             'title' => 'required',
             'link' => 'nullable',
-            'itemImage' => 'required'
+            'itemImage' => 'required|mimes:png,jpg,svg|file|max:1024',
         ]);
         $data['image'] = store_file($request->file('itemImage'));
         $data['link'] = $request->input('link');
@@ -65,7 +65,16 @@ class HomeItemController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+
         $homeItem = HomeItem::findOrFail($id);
+
+
+        $request->validate([
+            'title' => 'required',
+            'link' => 'nullable',
+            'itemImage' => 'sometimes|mimes:png,jpg,svg|file|max:1024',
+        ]);
 
         if($request->hasFile('itemImage')){
             Storage::disk('public')->delete($homeItem->image);

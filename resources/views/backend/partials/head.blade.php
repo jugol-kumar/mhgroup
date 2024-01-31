@@ -28,4 +28,20 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend') }}/app-assets/vendors/css/editors/quill/quill.snow.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/backend') }}/app-assets/vendors/css/editors/quill/quill.bubble.css">
 
+    <style>
+        /* sumiltone editor style */
+        .panel-heading{
+            background: #ededed !important;
+            border-bottom: 1px solid #cccccc;
+
+        }
+        .note-editable{
+            min-height:250px;
+        }
+        .note-modal button{
+            display: none;
+        }
+    </style>
+
+
 </head>
